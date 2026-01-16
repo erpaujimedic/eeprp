@@ -1,153 +1,155 @@
-/* --- TACTICAL & PRECISION THEME --- */
-/* Font: Rajdhani (Kotak/Macho untuk Header) & Inter (Bersih untuk Teks) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@600;700&display=swap');
+/* --- CLEAN PROFESSIONAL THEME (LIGHT) --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
 :root {
-    --bg-main: #0f172a;      /* Dark Navy/Black */
-    --bg-card: #1e293b;      /* Gunmetal Grey */
-    --text-main: #f1f5f9;
-    --text-muted: #94a3b8;
+    --bg-body: #f8fafc;       /* Abu-abu sangat muda (hampir putih) */
+    --bg-card: #ffffff;       /* Putih bersih */
+    --text-dark: #1e293b;     /* Hitam soft (untuk judul) */
+    --text-gray: #64748b;     /* Abu-abu (untuk deskripsi) */
     
-    /* Warna Aksen Macho */
-    --accent-medic: #ef4444; /* Merah Tegas */
-    --accent-tech: #0ea5e9;  /* Biru Elektrik */
-    --border-color: #334155;
+    /* Warna Aksen Profesional */
+    --blue-tech: #0284c7;     /* Biru Profesional */
+    --red-medic: #e11d48;     /* Merah Elegan (tidak ngejreng) */
+    
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05); /* Bayangan lembut */
+    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-html {
-    scroll-behavior: smooth; /* Scrolling otomatis halus */
-}
+html { scroll-behavior: smooth; }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
     margin: 0;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* --- TYPOGRAPHY --- */
-h1, h2, h3, .nav-logo {
-    font-family: 'Rajdhani', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* --- ANIMASI HALUS (Page Transition) --- */
-.fade-in {
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    opacity: 0;
-    transform: translateY(20px);
-}
-@keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- NAVIGASI --- */
+/* --- NAVIGASI (Putih Bersih) --- */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background: rgba(15, 23, 42, 0.95);
-    border-bottom: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.9); /* Transparan dikit */
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
-.nav-logo { font-size: 1.8rem; font-weight: 700; color: white; }
-.nav-logo span { color: var(--accent-medic); }
+
+.nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.5px; }
+.nav-logo span { color: var(--blue-tech); }
 
 .nav-links a {
-    color: var(--text-muted);
+    color: var(--text-gray);
     text-decoration: none;
     margin-left: 30px;
-    font-size: 0.9rem;
     font-weight: 600;
+    font-size: 0.9rem;
     transition: 0.3s;
-    text-transform: uppercase;
 }
-.nav-links a:hover, .nav-links a.active {
-    color: var(--text-main);
-    border-bottom: 2px solid var(--accent-tech);
-}
+.nav-links a:hover, .nav-links a.active { color: var(--blue-tech); }
 
-/* --- LAYOUT UTAMA --- */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 20px;
-}
+/* --- HERO & CONTAINER --- */
+.container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
 
-/* --- CARDS (BOX PRESISI) --- */
+h1 { color: var(--text-dark); letter-spacing: -1px; }
+p { color: var(--text-gray); }
+
+/* --- ANIMASI FADE IN --- */
+.fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+/* --- MODERN CARDS (Kunci Desain Ini) --- */
 .grid-box {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .card {
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 6px; /* Sudut sedikit tajam, tidak bulat */
+    border: 1px solid #e2e8f0; /* Garis tipis banget */
+    border-radius: 16px;       /* Sudut membulat modern */
     padding: 30px;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
     position: relative;
-    overflow: hidden;
+    top: 0;
 }
 
-/* Efek Hover Macho: Terangkat sedikit + Border menyala */
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border-color: var(--accent-tech);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--blue-tech);
 }
 
-/* Penanda Tipe Card (Garis Warna di Kiri) */
-.card.medic { border-left: 4px solid var(--accent-medic); }
-.card.tech { border-left: 4px solid var(--accent-tech); }
+.card h3 { margin-top: 0; font-weight: 700; font-size: 1.2rem; }
 
-.card h3 { margin-top: 0; font-size: 1.4rem; }
-.card p { color: var(--text-muted); font-size: 0.95rem; }
+/* Styling Khusus Kategori (Tanpa Border Kasar) */
+.card.medic i { color: var(--red-medic); background: #fff1f2; padding: 12px; border-radius: 12px; }
+.card.tech i { color: var(--blue-tech); background: #e0f2fe; padding: 12px; border-radius: 12px; }
+
+/* Tag/Label Kecil */
+.card span { 
+    font-size: 0.75rem; 
+    font-weight: 700; 
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+.card.medic span { background: #fff1f2; color: var(--red-medic); border: none; }
+.card.tech span { background: #e0f2fe; color: var(--blue-tech); border: none; }
+
 
 /* --- BUTTONS --- */
 .btn {
-    padding: 12px 35px;
-    background: transparent;
-    border: 2px solid var(--text-main);
-    color: var(--text-main);
-    font-weight: 700;
-    text-transform: uppercase;
+    padding: 14px 30px;
+    border-radius: 50px; /* Bulat pill shape */
+    font-weight: 600;
     text-decoration: none;
-    font-family: 'Rajdhani', sans-serif;
-    letter-spacing: 2px;
     transition: 0.3s;
     display: inline-block;
-    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
 }
-.btn:hover {
-    background: var(--text-main);
-    color: var(--bg-main);
-    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+
+.btn-primary {
+    background: var(--text-dark);
+    color: white;
+    box-shadow: 0 4px 15px rgba(30, 41, 59, 0.3);
 }
-.btn-primary { border-color: var(--accent-tech); color: var(--accent-tech); }
-.btn-primary:hover { background: var(--accent-tech); color: white; }
+.btn-primary:hover { transform: translateY(-2px); background: black; }
+
+.btn { /* Tombol Secondary (Default) */
+    background: white;
+    color: var(--text-dark);
+    border: 1px solid #cbd5e1;
+}
+.btn:hover { border-color: var(--text-dark); background: #f8fafc; }
 
 /* --- FOOTER --- */
 footer {
-    border-top: 1px solid var(--border-color);
+    background: white;
+    border-top: 1px solid #e2e8f0;
     padding: 40px 0;
+    margin-top: 80px;
     text-align: center;
-    background: var(--bg-card);
-    margin-top: auto;
 }
 .social-icons a {
-    color: var(--text-muted);
-    font-size: 1.5rem;
-    margin: 0 15px;
+    color: var(--text-dark);
+    background: #f1f5f9;
+    width: 45px; height: 45px;
+    line-height: 45px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 10px;
     transition: 0.3s;
+    font-size: 1.2rem;
 }
-.social-icons a:hover { color: var(--text-main); transform: scale(1.1); }
+.social-icons a:hover { background: var(--blue-tech); color: white; transform: scale(1.1); }
