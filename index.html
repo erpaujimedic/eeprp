@@ -3,60 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eep Ridwan Pauji | Professional</title>
+    <title>Eep Ridwan Pauji | Medic & Developer</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
     <nav>
-        <div class="nav-logo">EEP<span>.MEDIC</span></div>
+        <div class="nav-logo">EEP<span>.DEV</span></div>
         <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="certifications.html">Sertifikasi</a>
-            <a href="portfolio.html">Portofolio</a>
-            <a href="#contact">Kontak</a>
+            <a href="#home">Home</a>
+            <a href="#about">Tentang</a>
+            <a href="#history">Perjalanan</a>
+            <a href="#gallery">Galeri</a>
+            <a href="#blog">Artikel</a>
         </div>
     </nav>
 
-    <header class="container fade-in" style="min-height: 80vh; display: flex; align-items: center;">
-        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 50px;">
-            
-            <div style="flex: 1; min-width: 300px; text-align: center;">
-                <img src="foto-profil.jpg" alt="Profile" 
-                     style="width: 280px; height: 280px; object-fit: cover; border-radius: 8px; border: 4px solid var(--bg-card); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-            </div>
-
-            <div style="flex: 2; min-width: 300px;">
-                <div style="display: inline-block; background: var(--bg-card); padding: 5px 15px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; color: var(--accent-tech); margin-bottom: 20px; border: 1px solid var(--border-color);">
-                    SYSTEM DEVELOPER & PARAMEDIC
-                </div>
-                <h1 style="font-size: 3.5rem; margin: 0 0 20px 0; line-height: 1;">
-                    EEP RIDWAN <span style="color: var(--text-muted);">PAUJI</span>
-                </h1>
-                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px;">
-                    Profesional ganda dengan presisi medis dan logika pemrograman. 
-                    Membangun sistem automasi administrasi (Apps Script) dengan standar keamanan dan efisiensi tinggi.
+    <header id="home">
+        <div class="blob" style="top: -100px; left: -100px;"></div>
+        <div class="blob-2"></div>
+        
+        <div class="container" style="display: flex; align-items: center; flex-wrap: wrap;">
+            <div class="hero-content" style="flex: 1; min-width: 300px;" data-aos="fade-right">
+                <span class="badge-role">PARAMEDIC • SYSTEM DEVELOPER</span>
+                <h1>Presisi Medis.<br>Logika Digital.</h1>
+                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; line-height: 1.8;">
+                    Saya <b>Eep Ridwan Pauji</b>. Menggabungkan empati perawatan pasien dengan efisiensi automasi Google Apps Script. 
+                    Membangun solusi kesehatan dan sistem manajemen yang lebih cerdas.
                 </p>
-                <div>
-                    <a href="portfolio.html" class="btn btn-primary">Lihat Karya</a>
-                    <a href="certifications.html" class="btn" style="margin-left: 15px;">Kredensial</a>
-                </div>
+                <a href="#gallery" class="btn btn-primary">Lihat Karya & Aktivitas</a>
+                <a href="https://wa.me/6285888181119" class="btn" style="margin-left: 10px; background: white; border: 1px solid #cbd5e1;">Hubungi Saya</a>
+            </div>
+            
+            <div class="hero-image" style="flex: 1; text-align: center; min-width: 300px;" data-aos="zoom-in">
+                <img src="https://via.placeholder.com/400x400" alt="Eep Ridwan Pauji" 
+                     style="width: 80%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); transform: rotate(-3deg);">
             </div>
         </div>
     </header>
 
-    <footer id="contact">
-        <div class="container">
-            <h2 style="margin-bottom: 30px;">HUBUNGI SAYA</h2>
-            <div class="social-icons">
-                <a href="https://wa.me/6285888181119"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:erpauji.medic@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/eep-ridwan-pauji"><i class="fab fa-linkedin"></i></a>
-                <a href="https://instagram.com/eepridwanpauji"><i class="fab fa-instagram"></i></a>
-            </div>
-            <p style="margin-top: 30px; font-size: 0.8rem; color: var(--text-muted);">&copy; 2026 Eep Ridwan Pauji.</p>
+    <section id="history" class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Jejak <span>Langkah</span></h2>
+            <p>Perjalanan karier medis, pengembangan sistem, dan dedikasi komunitas.</p>
         </div>
+
+        <div class="timeline">
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="content-box">
+                    <span style="color: var(--blue-tech); font-weight: 700; font-size: 0.8rem;">2026 - SEKARANG</span>
+                    <h3>System Automation Lead</h3>
+                    <p style="font-size: 0.9rem; color: #64748b;">Mengembangkan sistem manajemen keuangan pribadi dan automasi data menggunakan Google Apps Script.</p>
+                </div>
+            </div>
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="content-box">
+                    <span style="color: var(--red-medic); font-weight: 700; font-size: 0.8rem;">2024 - SEKARANG</span>
+                    <h3>Paramedic / Nurse</h3>
+                    <p style="font-size: 0.9rem; color: #64748b;">Menangani pasien rawat inap dan gawat darurat dengan standar pelayanan medis profesional.</p>
+                </div>
+            </div>
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="content-box">
+                    <span style="color: #10b981; font-weight: 700; font-size: 0.8rem;">2023</span>
+                    <h3>Komunitas Sejarah (PSII)</h3>
+                    <p style="font-size: 0.9rem; color: #64748b;">Aktif dalam riset dan dokumentasi sejarah pergerakan nasional dan pemikiran Soekarno.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" style="background: white;">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Galeri <span>Aktivitas</span></h2>
+                <p>Dokumentasi visual dari pekerjaan lapangan dan kegiatan komunitas.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/300x250" alt="Kegiatan Medis">
+                    <div class="gallery-overlay">
+                        <h4>Dinas Medis</h4>
+                        <p style="font-size: 0.8rem;">Penanganan Gawat Darurat</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/300x250" alt="Coding">
+                    <div class="gallery-overlay">
+                        <h4>Coding Station</h4>
+                        <p style="font-size: 0.8rem;">Deploy Apps Script Project</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://via.placeholder.com/300x250" alt="Kunjungan Sejarah">
+                    <div class="gallery-overlay">
+                        <h4>Rumah HOS Tjokroaminoto</h4>
+                        <p style="font-size: 0.8rem;">Studi Sejarah & Video Log</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://via.placeholder.com/300x250" alt="Komunitas">
+                    <div class="gallery-overlay">
+                        <h4>Bakti Sosial</h4>
+                        <p style="font-size: 0.8rem;">Pemeriksaan Kesehatan Gratis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Tulisan <span>Terbaru</span></h2>
+            <p>Pemikiran singkat tentang teknologi, kesehatan, dan sejarah.</p>
+        </div>
+
+        <div class="blog-grid">
+            <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="blog-img">
+                    </div>
+                <div class="blog-content">
+                    <div class="blog-tag">TECHNOLOGY</div>
+                    <h3 style="margin: 10px 0;">Cara Automasi Invoice dengan Apps Script</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Bagaimana mengubah data Google Sheet menjadi PDF Invoice otomatis...</p>
+                    <a href="#" style="color: var(--blue-tech); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="blog-img" style="background: #fca5a5;"></div>
+                <div class="blog-content">
+                    <div class="blog-tag" style="color: var(--red-medic);">HISTORY</div>
+                    <h3 style="margin: 10px 0;">Jejak Soekarno di Peneleh</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Refleksi kunjungan ke rumah HOS Tjokroaminoto dan semangat kebangsaan...</p>
+                    <a href="#" style="color: var(--red-medic); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Baca Selengkapnya →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 50px 20px; background: white; border-top: 1px solid #e2e8f0;">
+        <h3 style="margin-bottom: 20px;">Siap Berkolaborasi?</h3>
+        <div class="social-icons" style="margin-bottom: 30px;">
+            <a href="#" style="font-size: 1.5rem; margin: 0 10px; color: var(--text-main);"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" style="font-size: 1.5rem; margin: 0 10px; color: var(--text-main);"><i class="fab fa-linkedin"></i></a>
+            <a href="#" style="font-size: 1.5rem; margin: 0 10px; color: var(--text-main);"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">&copy; 2026 Eep Ridwan Pauji. Built with Passion & Code.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // 1. Inisialisasi Animasi Scroll (AOS)
+        AOS.init({
+            duration: 800, // Durasi animasi
+            once: true,    // Animasi hanya sekali saat scroll ke bawah
+            offset: 100    // Memicu animasi 100px sebelum elemen terlihat
+        });
+
+        // 2. Script Preloader (Loading Hilang saat web siap)
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+        });
+    </script>
 </body>
 </html>
