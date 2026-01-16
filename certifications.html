@@ -5,109 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertifikasi - Eep Ridwan Pauji</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="bg-decor blob-2"></div>
+    <div id="preloader"><div class="spinner"></div></div>
 
     <nav>
-        <div class="nav-logo">EEP<span>.MEDIC</span></div>
+        <a href="index.html" class="nav-logo">EEP<span>.DEV</span></a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="certifications.html" class="active">Sertifikasi</a>
             <a href="portfolio.html">Portofolio</a>
-            <a href="index.html#contact">Kontak</a>
+            <a href="certifications.html" class="active">Sertifikasi</a>
+            <a href="gallery.html">Galeri</a>
         </div>
     </nav>
 
-    <div class="container fade-in">
-        
-        <div style="margin-bottom: 50px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">LICENSES & CERTIFICATIONS</h1>
-            <p style="color: var(--text-muted);">Dokumen validasi kompetensi profesional dalam bidang Medis dan Pengembangan Sistem.</p>
+    <div class="container">
+        <div class="page-header" data-aos="fade-down">
+            <h1>Licenses & Credentials</h1>
+            <p>Validasi kompetensi profesional dan pelatihan resmi yang telah diselesaikan.</p>
         </div>
 
-        <div style="margin-bottom: 60px;">
-            <h3 style="color: var(--accent-medic); display: flex; align-items: center; margin-bottom: 25px;">
-                <i class="fas fa-file-medical-alt" style="margin-right: 10px;"></i> MEDICAL & NURSING
-            </h3>
-            
-            <div class="grid-box">
-                <div class="card medic">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <i class="fas fa-id-card" style="font-size: 1.5rem; color: var(--accent-medic);"></i>
-                        <span style="font-size: 0.75rem; border: 1px solid var(--accent-medic); color: var(--accent-medic); padding: 2px 6px; border-radius: 4px;">ACTIVE</span>
-                    </div>
-                    <h3>STR Perawat</h3>
-                    <p>Surat Tanda Registrasi Perawat. Lisensi resmi negara untuk melakukan praktik keperawatan profesional.</p>
+        <div class="grid-box">
+            <div class="glass-card" data-aos="fade-up">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <i class="fas fa-id-card" style="font-size: 2rem; color: var(--red-medic);"></i>
+                    <span class="tag medic">ACTIVE</span>
                 </div>
+                <h3 style="margin-top: 20px;">STR Perawat</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Surat Tanda Registrasi. Lisensi wajib negara untuk praktik keperawatan.</p>
+                <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.8rem; margin-top: 10px; border: 1px solid #ddd;">Lihat Dokumen</a>
+            </div>
 
-                <div class="card medic">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <i class="fas fa-heartbeat" style="font-size: 1.5rem; color: var(--accent-medic);"></i>
-                        <span style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted);">VALID</span>
-                    </div>
-                    <h3>BTCLS / PPGD</h3>
-                    <p>Basic Trauma & Cardiac Life Support. Sertifikasi penanganan kegawatdaruratan trauma dan kardiovaskular.</p>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <i class="fas fa-heartbeat" style="font-size: 2rem; color: var(--red-medic);"></i>
+                    <span class="tag medic">VALID</span>
                 </div>
+                <h3 style="margin-top: 20px;">BTCLS Certification</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Basic Trauma & Cardiac Life Support. Kompetensi Gawat Darurat.</p>
+            </div>
 
-                <div class="card medic">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <i class="fas fa-hard-hat" style="font-size: 1.5rem; color: var(--accent-medic);"></i>
-                        <span style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted);">K3</span>
-                    </div>
-                    <h3>Hiperkes</h3>
-                    <p>Higiene Perusahaan Kesehatan dan Keselamatan Kerja. Kompetensi medis dalam lingkungan industri/perusahaan.</p>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <i class="fab fa-google" style="font-size: 2rem; color: var(--blue-tech);"></i>
+                    <span class="tag tech">SKILL</span>
                 </div>
+                <h3 style="margin-top: 20px;">Google Apps Script</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Advanced Automation, Spreadsheet Manipulation, & Web App Deployment.</p>
             </div>
         </div>
-
-
-        <div>
-            <h3 style="color: var(--accent-tech); display: flex; align-items: center; margin-bottom: 25px;">
-                <i class="fas fa-laptop-code" style="margin-right: 10px;"></i> TECHNICAL & DIGITAL
-            </h3>
-            
-            <div class="grid-box">
-                <div class="card tech">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <i class="fab fa-google" style="font-size: 1.5rem; color: var(--accent-tech);"></i>
-                        <span style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted);">ADVANCED</span>
-                    </div>
-                    <h3>Google Apps Script</h3>
-                    <p>Automasi Spreadsheet, integrasi Google Form, dan manipulasi data berbasis Cloud.</p>
-                </div>
-
-                <div class="card tech">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <i class="fas fa-database" style="font-size: 1.5rem; color: var(--accent-tech);"></i>
-                        <span style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted);">SKILL</span>
-                    </div>
-                    <h3>Database Logic</h3>
-                    <p>Pemahaman struktur Relational Database, Query SQL Dasar, dan manajemen data user.</p>
-                </div>
-
-                <div class="card tech">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <i class="fas fa-globe" style="font-size: 1.5rem; color: var(--accent-tech);"></i>
-                        <span style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted);">FRONTEND</span>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>HTML5, CSS3 Modern, dan implementasi UI/UX Responsif.</p>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <footer id="contact">
-        <div class="container">
-            <div class="social-icons">
-                <a href="https://wa.me/6285888181119"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:erpauji.medic@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/eep-ridwan-pauji"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-muted);">&copy; 2026 Eep Ridwan Pauji.</p>
-        </div>
-    </footer>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        window.onload = () => document.getElementById('preloader').style.display = 'none';
+    </script>
 </body>
 </html>
