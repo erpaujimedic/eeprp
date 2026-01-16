@@ -3,277 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eep Ridwan Pauji | Professional Portfolio</title>
+    <title>Eep Ridwan Pauji | Home</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-
-    <div id="preloader">
-        <div class="spinner"></div>
-    </div>
+    <div class="bg-decor blob-1"></div>
+    <div class="bg-decor blob-2"></div>
+    <div id="preloader"><div class="spinner"></div></div>
 
     <nav>
-        <div class="nav-logo">EEP<span>.DEV</span></div>
+        <a href="index.html" class="nav-logo">EEP<span>.DEV</span></a>
         <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#expertise">Keahlian</a>
-            <a href="#history">Perjalanan</a>
-            <a href="#gallery">Dokumentasi</a>
-            <a href="#blog">Artikel</a>
-        </div>
+            <a href="index.html" class="active">Home</a>
+            <a href="portfolio.html">Portofolio</a> <a href="certifications.html">Sertifikasi</a> <a href="gallery.html">Galeri</a> </div>
     </nav>
 
-    <header id="home">
-        <div class="blob" style="top: -100px; left: -100px;"></div>
-        <div class="blob-2"></div>
+    <div class="container" style="display: flex; align-items: center; min-height: 80vh;">
+        <div style="flex: 1;" data-aos="fade-right">
+            <span class="tag tech">SYSTEM DEVELOPER</span> <span class="tag medic">PARAMEDIC</span>
+            <h1 style="font-size: 3.5rem; margin: 15px 0; line-height: 1.1;">
+                Presisi Medis.<br>Logika Digital.
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px;">
+                Selamat datang di ruang kerja digital saya. Saya menggabungkan empati pelayanan kesehatan dengan efisiensi automasi Google Apps Script.
+            </p>
+            <div style="display: flex; gap: 15px;">
+                <a href="portfolio.html" class="btn btn-primary">Lihat Project</a>
+                <a href="certifications.html" class="btn" style="background: white; border: 1px solid #cbd5e1;">Lisensi Saya</a>
+            </div>
+        </div>
         
-        <div class="container" style="display: flex; align-items: center; flex-wrap: wrap; gap: 50px;">
-            <div class="hero-content" style="flex: 1; min-width: 300px;" data-aos="fade-right">
-                <span class="badge-role">MEDIC & CODER</span>
-                <h1>Presisi Medis.<br>Logika Digital.</h1>
-                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; line-height: 1.8;">
-                    Saya <b>Eep Ridwan Pauji</b>. Seorang Paramedic yang memiliki <i>passion</i> mendalam pada Google Apps Script & Web Development. 
-                    Membangun jembatan antara pelayanan kesehatan yang humanis dengan efisiensi sistem digital.
-                </p>
-                <div style="display: flex; gap: 15px;">
-                    <a href="#expertise" class="btn btn-primary">Lihat Portfolio</a>
-                    <a href="https://wa.me/6285888181119" class="btn" style="background: white; border: 1px solid #cbd5e1;"> <i class="fab fa-whatsapp"></i> Kontak</a>
-                </div>
-            </div>
+        <div style="flex: 1; text-align: center;" data-aos="fade-left">
+            <img src="https://drive.google.com/uc?export=view&id=ISI_DENGAN_ID_FOTO_PROFIL_ANDA" 
+                 onerror="this.src='https://via.placeholder.com/400'" 
+                 alt="Foto Profil" 
+                 style="width: 350px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); transform: rotate(-2deg);">
             
-            <div class="hero-image" style="flex: 1; text-align: center; min-width: 300px;" data-aos="zoom-in">
-                <img src="https://via.placeholder.com/400x400" alt="Eep Ridwan Pauji" 
-                     style="width: 80%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); transform: rotate(-3deg); border: 4px solid white;">
-            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
+                *Foto diload langsung dari Google Drive Cloud
+            </p>
         </div>
-    </header>
-
-    <section id="expertise" class="container">
-        <div class="section-title" data-aos="fade-up">
-            <h2>Kompetensi & <span>Sertifikasi</span></h2>
-            <p>Perpaduan lisensi medis resmi dan skill teknikal pemrograman.</p>
-        </div>
-
-        <div class="grid-box gallery-grid"> <div class="glass-card medic-theme" data-aos="fade-up" data-aos-delay="100">
-                <div class="status-badge status-valid">ACTIVE</div>
-                <div class="icon-box"><i class="fas fa-id-card-alt"></i></div>
-                <h3>STR Perawat</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Lisensi resmi tenaga kesehatan untuk praktik keperawatan profesional.</p>
-            </div>
-
-            <div class="glass-card medic-theme" data-aos="fade-up" data-aos-delay="200">
-                <div class="status-badge status-valid">VALID</div>
-                <div class="icon-box"><i class="fas fa-heartbeat"></i></div>
-                <h3>BTCLS / PPGD</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Basic Trauma & Cardiac Life Support. Sertifikasi penanganan gawat darurat.</p>
-            </div>
-
-            <div class="glass-card medic-theme" data-aos="fade-up" data-aos-delay="300">
-                <div class="status-badge status-valid">K3</div>
-                <div class="icon-box"><i class="fas fa-hard-hat"></i></div>
-                <h3>Hiperkes</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Higiene Perusahaan Kesehatan & Keselamatan Kerja.</p>
-            </div>
-
-            <div class="glass-card tech-theme" data-aos="fade-up" data-aos-delay="400">
-                <div class="status-badge" style="background: #e0f2fe; color: var(--blue-tech);">DEV</div>
-                <div class="icon-box"><i class="fab fa-google"></i></div>
-                <h3>Google Apps Script</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Automasi Spreadsheet, Custom Form, dan integrasi API untuk sistem manajemen.</p>
-            </div>
-
-            <div class="glass-card tech-theme" data-aos="fade-up" data-aos-delay="500">
-                <div class="status-badge" style="background: #e0f2fe; color: var(--blue-tech);">PROJECT</div>
-                <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
-                <h3>Finance System</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Sistem manajemen keuangan pribadi terintegrasi database Google Sheet.</p>
-            </div>
-            
-            <div class="glass-card tech-theme" data-aos="fade-up" data-aos-delay="600">
-                <div class="status-badge" style="background: #e0f2fe; color: var(--blue-tech);">DEPLOY</div>
-                <div class="icon-box"><i class="fas fa-server"></i></div>
-                <h3>Web Deployment</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Pengalaman deploy aplikasi localhost ke server online (IDCloudHost).</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="history" style="background: #f8fafc; padding-top: 80px; padding-bottom: 80px;">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Jejak <span>Langkah</span></h2>
-                <p>Timeline pengalaman profesional dan dedikasi sosial.</p>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item left" data-aos="fade-right">
-                    <div class="content-box">
-                        <span style="color: var(--blue-tech); font-weight: 700; font-size: 0.8rem;">JAN 2026 - SEKARANG</span>
-                        <h3>System Developer (Personal)</h3>
-                        <p style="font-size: 0.9rem; color: #64748b;">
-                            Mengembangkan "Finance Automation System" dan Portofolio Website berbasis GitHub Pages. 
-                            Fokus pada efisiensi data dan UI/UX modern.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item right" data-aos="fade-left">
-                    <div class="content-box">
-                        <span style="color: var(--red-medic); font-weight: 700; font-size: 0.8rem;">PRESENT</span>
-                        <h3>Paramedic / Perawat</h3>
-                        <p style="font-size: 0.9rem; color: #64748b;">
-                            Aktif bekerja di pelayanan kesehatan. Menangani pasien dengan pendekatan medis holistik dan kolaborasi tim profesional.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item left" data-aos="fade-right">
-                    <div class="content-box">
-                        <span style="color: #10b981; font-weight: 700; font-size: 0.8rem;">2023 - SEKARANG</span>
-                        <h3>Pegiat Sejarah & Komunitas</h3>
-                        <p style="font-size: 0.9rem; color: #64748b;">
-                            Riset mandiri tentang Sejarah Pergerakan (PSII) dan Soekarno. 
-                            Dokumentasi kunjungan bersejarah (Rumah HOS Tjokroaminoto).
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="container">
-        <div class="section-title" data-aos="fade-up">
-            <h2>Dokumentasi <span>Visual</span></h2>
-            <p>Momen terekam dari aktivitas medis, coding, dan perjalanan sejarah.</p>
-        </div>
-
-        <div class="gallery-grid">
-            <div class="gallery-item" data-aos="zoom-in">
-                <img src="https://via.placeholder.com/300x250" alt="Kegiatan Medis">
-                <div class="gallery-overlay">
-                    <h4>Pelayanan Medis</h4>
-                    <p style="font-size: 0.8rem;">Dedikasi di fasilitas kesehatan</p>
-                </div>
-            </div>
-            
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://via.placeholder.com/300x250" alt="Setup Coding">
-                <div class="gallery-overlay">
-                    <h4>Workspace Coding</h4>
-                    <p style="font-size: 0.8rem;">Mengembangkan Apps Script Project</p>
-                </div>
-            </div>
-
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://via.placeholder.com/300x250" alt="Sejarah">
-                <div class="gallery-overlay">
-                    <h4>Jejak Sejarah</h4>
-                    <p style="font-size: 0.8rem;">Kunjungan Rumah HOS Tjokroaminoto</p>
-                </div>
-            </div>
-
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                <img src="https://via.placeholder.com/300x250" alt="Komunitas">
-                <div class="gallery-overlay">
-                    <h4>Kegiatan Sosial</h4>
-                    <p style="font-size: 0.8rem;">Berbaur dan berbagi dengan komunitas</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog" style="background: white; padding-bottom: 80px;">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Tulisan <span>Terbaru</span></h2>
-                <p>Catatan singkat tentang teknologi, pengalaman medis, dan sejarah.</p>
-            </div>
-
-            <div class="blog-grid">
-                <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="blog-img" style="background: #e2e8f0; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-code" style="font-size: 3rem; color: #94a3b8;"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tag">APPS SCRIPT</div>
-                        <h3 style="margin: 10px 0;">Membuat Kuitansi Otomatis dengan Google Sheet</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Studi kasus pembuatan sistem keuangan pribadi...</p>
-                        <a href="#" style="color: var(--blue-tech); font-weight: 600; font-size: 0.9rem;">Baca Selengkapnya →</a>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="blog-img" style="background: #ffe4e6; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-landmark" style="font-size: 3rem; color: #fda4af;"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tag" style="color: var(--red-medic);">SEJARAH</div>
-                        <h3 style="margin: 10px 0;">Refleksi di Rumah HOS Tjokroaminoto</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Menelusuri jejak Soekarno muda di Surabaya...</p>
-                        <a href="#" style="color: var(--red-medic); font-weight: 600; font-size: 0.9rem;">Baca Selengkapnya →</a>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="blog-img" style="background: #dbeafe; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-server" style="font-size: 3rem; color: #93c5fd;"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tag">SERVER</div>
-                        <h3 style="margin: 10px 0;">Deploy Localhost ke IDCloudHost</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Pengalaman mengonlinekan aplikasi web dari komputer lokal...</p>
-                        <a href="#" style="color: var(--blue-tech); font-weight: 600; font-size: 0.9rem;">Baca Selengkapnya →</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <footer style="background: var(--text-main); color: white; padding: 60px 0;">
-        <div class="container" style="text-align: center;">
-            <h2 style="margin-bottom: 30px;">Siap Berkolaborasi?</h2>
-            <div class="social-icons" style="margin-bottom: 30px;">
-                <a href="https://wa.me/6285888181119" style="background: rgba(255,255,255,0.1); color: white; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; display: inline-block; margin: 0 10px; transition: 0.3s;">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/eep-ridwan-pauji" style="background: rgba(255,255,255,0.1); color: white; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; display: inline-block; margin: 0 10px; transition: 0.3s;">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:erpauji.medic@gmail.com" style="background: rgba(255,255,255,0.1); color: white; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; display: inline-block; margin: 0 10px; transition: 0.3s;">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://instagram.com/eepridwanpauji" style="background: rgba(255,255,255,0.1); color: white; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; display: inline-block; margin: 0 10px; transition: 0.3s;">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-            <p style="color: #94a3b8; font-size: 0.8rem;">&copy; 2026 Eep Ridwan Pauji. Designed with Passion.</p>
-        </div>
-    </footer>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Init Animasi Scroll
-        AOS.init({ duration: 800, once: true, offset: 100 });
-
-        // Preloader Hilang
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';
-            setTimeout(() => { preloader.style.display = 'none'; }, 500);
-        });
-
-        // Smooth Scroll untuk Navigasi
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        AOS.init({ duration: 800, once: true });
+        window.onload = () => document.getElementById('preloader').style.display = 'none';
     </script>
 </body>
 </html>
