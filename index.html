@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    <style>
+        /* CSS Sederhana untuk Tampilan Bersih */
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        /* Header / Hero Section */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        h1 { margin: 0; color: var(--dark); font-size: 2.5rem; }
+        p.subtitle { color: #64748b; font-size: 1.2rem; }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        /* Grid Project */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .tag {
+            background: #e2e8f0;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nama Lengkap Anda</h1>
+        <p class="subtitle">System Developer | Web Enthusiast</p>
+        <a href="mailto:emailanda@example.com" class="btn">Hubungi Saya</a>
+    </header>
+
+    <div class="container">
+        <h2 style="margin-top: 40px; text-align: center;">Proyek Terakhir</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Sistem Manajemen Keuangan</h3>
+                <p>Aplikasi berbasis web untuk mencatat pengeluaran, pemasukan, dan utang piutang pribadi.</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="tag">Google Apps Script</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+                <a href="#">Lihat Kode &rarr;</a>
+            </div>
+
+            <div class="card">
+                <h3>Dashboard Regional Login</h3>
+                <p>Sistem otentikasi user berbasis role, menampilkan data proyek spesifik berdasarkan region SPV.</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                </div>
+                <a href="#">Lihat Demo &rarr;</a>
+            </div>
+
+            <div class="card">
+                <h3>Desain Rumah Minimalis</h3>
+                <p>Koleksi konsep desain rumah dan interior dalam format 3D rendering.</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="tag">SketchUp</span>
+                    <span class="tag">Rendering</span>
+                </div>
+                <a href="#">Lihat Galeri &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Dibuat dengan GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
