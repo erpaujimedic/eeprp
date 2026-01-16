@@ -3,124 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Portofolio Profesional - ERP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Sederhana untuk Tampilan Bersih */
+        /* --- RESET & VARIABLES --- */
         :root {
-            --primary: #2563eb;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --text: #334155;
+            --primary: #0f172a; /* Warna gelap elegan */
+            --accent: #3b82f6;  /* Biru profesional */
+            --bg: #f8fafc;
+            --text-main: #334155;
+            --text-light: #64748b;
         }
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--light);
-        }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-        /* Header / Hero Section */
-        header {
-            text-align: center;
-            padding: 80px 20px;
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        h1 { margin: 0; color: var(--dark); font-size: 2.5rem; }
-        p.subtitle { color: #64748b; font-size: 1.2rem; }
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
         }
         
-        /* Grid Project */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
+        /* --- LAYOUT UTAMA --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .card {
+        section { padding: 60px 0; border-bottom: 1px solid #e2e8f0; }
+
+        /* --- HERO SECTION (HEADER) --- */
+        header {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            background-color: #ddd; /* Placeholder warna abu */
+        }
+        h1 { font-size: 2.5rem; margin: 10px 0; color: var(--primary); }
+        .role { font-size: 1.2rem; color: var(--accent); font-weight: 600; }
+        .bio { max-width: 600px; margin: 20px auto; color: var(--text-light); }
+
+        /* --- SECTION TITLES --- */
+        h2.section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+        h2.section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: #e2e8f0;
+            margin-left: 20px;
+        }
+
+        /* --- TIMELINE PENGALAMAN (WORK HISTORY) --- */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #e2e8f0;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+        .date { font-size: 0.9rem; color: var(--accent); font-weight: bold; }
+        .job-title { font-size: 1.2rem; font-weight: 700; margin: 5px 0; color: var(--primary); }
+        .company { font-style: italic; color: var(--text-light); margin-bottom: 10px; display: block;}
+        
+        /* --- GRID GALLERY / DOKUMENTASI --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: transform 0.2s;
         }
-        .card:hover { transform: translateY(-5px); }
+        .project-card:hover { transform: translateY(-5px); }
+        .card-content { padding: 20px; }
+        .card-content h3 { margin-top: 0; color: var(--primary); }
+        .tag-container { margin-top: 15px; }
         .tag {
-            background: #e2e8f0;
-            padding: 3px 8px;
-            border-radius: 4px;
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 20px;
             font-size: 0.8rem;
             margin-right: 5px;
+            margin-bottom: 5px;
         }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            margin-top: 50px;
-            color: #64748b;
-        }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 40px; color: var(--text-light); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Nama Lengkap Anda</h1>
-        <p class="subtitle">System Developer | Web Enthusiast</p>
-        <a href="mailto:emailanda@example.com" class="btn">Hubungi Saya</a>
+        <div class="container">
+            <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-img">
+            
+            <h1>Nama Lengkap Anda</h1>
+            <p class="role">System Developer | Web Creator</p>
+            <p class="bio">
+                Saya adalah pengembang sistem yang berfokus pada efisiensi dan otomatisasi. 
+                Memiliki ketertarikan mendalam pada desain arsitektur rumah dan sejarah Indonesia. 
+                Selalu mencari cara untuk menggabungkan logika pemrograman dengan estetika.
+            </p>
+        </div>
     </header>
 
-    <div class="container">
-        <h2 style="margin-top: 40px; text-align: center;">Proyek Terakhir</h2>
-        
-        <div class="grid">
-            <div class="card">
-                <h3>Sistem Manajemen Keuangan</h3>
-                <p>Aplikasi berbasis web untuk mencatat pengeluaran, pemasukan, dan utang piutang pribadi.</p>
-                <div style="margin-bottom: 15px;">
-                    <span class="tag">Google Apps Script</span>
-                    <span class="tag">JavaScript</span>
+    <section>
+        <div class="container">
+            <h2 class="section-title">Pengalaman & Riwayat Kerja</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="date">2024 - Sekarang</span>
+                    <h3 class="job-title">Senior System Developer</h3>
+                    <span class="company">Nama Perusahaan Anda</span>
+                    <p>
+                        Bertanggung jawab penuh atas pengembangan sistem internal perusahaan.
+                        <ul>
+                            <li>Mengembangkan Dashboard Monitoring Regional untuk SPV.</li>
+                            <li>Melakukan maintenance server (Localhost & Cloud).</li>
+                            <li>Memimpin tim teknis dalam migrasi database.</li>
+                        </ul>
+                    </p>
                 </div>
-                <a href="#">Lihat Kode &rarr;</a>
-            </div>
 
-            <div class="card">
-                <h3>Dashboard Regional Login</h3>
-                <p>Sistem otentikasi user berbasis role, menampilkan data proyek spesifik berdasarkan region SPV.</p>
-                <div style="margin-bottom: 15px;">
-                    <span class="tag">PHP</span>
-                    <span class="tag">MySQL</span>
+                <div class="timeline-item">
+                    <span class="date">2022 - 2024</span>
+                    <h3 class="job-title">Junior Programmer</h3>
+                    <span class="company">Nama Perusahaan Lama</span>
+                    <p>
+                        Membangun aplikasi web sederhana dan mendukung operasional IT harian.
+                        Berhasil membuat sistem absensi karyawan berbasis web.
+                    </p>
                 </div>
-                <a href="#">Lihat Demo &rarr;</a>
-            </div>
-
-            <div class="card">
-                <h3>Desain Rumah Minimalis</h3>
-                <p>Koleksi konsep desain rumah dan interior dalam format 3D rendering.</p>
-                <div style="margin-bottom: 15px;">
-                    <span class="tag">SketchUp</span>
-                    <span class="tag">Rendering</span>
-                </div>
-                <a href="#">Lihat Galeri &rarr;</a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title">Dokumentasi Project & Karya</h2>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Finance Management System</h3>
+                        <p>Aplikasi pencatat keuangan pribadi (Gaji, Hutang, Tabungan) menggunakan Google Apps Script.</p>
+                        <div class="tag-container">
+                            <span class="tag">Google Apps Script</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Regional Login Auth</h3>
+                        <p>Sistem keamanan login bertingkat dimana SPV Regional 1 hanya bisa melihat data regionnya sendiri.</p>
+                        <div class="tag-container">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Konten Sejarah & Video</h3>
+                        <p>Dokumentasi dan riset visual tentang Rumah HOS Tjokroaminoto dan jejak Soekarno.</p>
+                        <div class="tag-container">
+                            <span class="tag">Videography</span>
+                            <span class="tag">History</span>
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="project-card">
+                    <div class="card-content">
+                        <h3>Design Rumah Minimalis</h3>
+                        <p>Eksplorasi desain hunian modern dengan efisiensi ruang.</p>
+                        <div class="tag-container">
+                            <span class="tag">Architecture</span>
+                            <span class="tag">Design</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 Dibuat dengan GitHub Pages</p>
+        <p>&copy; 2026 ERP. Dibuat dengan semangat.</p>
     </footer>
 
 </body>
