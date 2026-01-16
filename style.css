@@ -1,92 +1,161 @@
-/* --- MODERN ADVANCED CSS --- */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
+/* --- PRECIOUS & PROFESSIONAL THEME --- */
+/* Mengambil Font: Playfair Display (Elegan) & Plus Jakarta Sans (Modern) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+/* Mengambil Icon Pack */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
 :root {
-    --bg-dark: #0f172a;
-    --card-bg: rgba(30, 41, 59, 0.7); /* Glass effect */
-    --primary: #3b82f6;
-    --accent: #8b5cf6; /* Gradient accent */
-    --text-main: #f1f5f9;
-    --text-muted: #94a3b8;
+    --bg-dark: #0b0f19; /* Hitam pekat */
+    --text-gold: #d4af37; /* Emas mewah */
+    --text-white: #f8fafc;
+    --text-gray: #94a3b8;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --border-glass: rgba(255, 255, 255, 0.1);
 }
 
 body {
     background-color: var(--bg-dark);
-    color: var(--text-main);
+    color: var(--text-white);
     font-family: 'Plus Jakarta Sans', sans-serif;
     margin: 0;
-    line-height: 1.6;
-    background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 20%),
-                      radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 20%);
+    line-height: 1.8;
 }
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /* Font Serif untuk kesan Mahal */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.gold-text { color: var(--text-gold); }
 
 /* --- NAVIGATION --- */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
+    padding: 25px 5%;
+    background: rgba(11, 15, 25, 0.9);
     position: sticky;
     top: 0;
-    z-index: 100;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-glass);
 }
-.logo { font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; }
-.logo span { color: var(--primary); }
+.logo { font-size: 1.5rem; letter-spacing: 1px; color: var(--text-white); }
 .nav-links a {
-    color: var(--text-muted);
+    color: var(--text-gray);
     text-decoration: none;
     margin-left: 30px;
-    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: 0.3s;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+.nav-links a:hover { color: var(--text-gold); }
 
-/* --- GLOBAL STYLES --- */
-.container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-h1, h2 { letter-spacing: -0.02em; }
-.btn {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: white;
-    padding: 12px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    transition: transform 0.2s;
-    border: none;
+/* --- HERO BANNER (Kunci Tampilan) --- */
+.hero {
+    position: relative;
+    height: 90vh; /* Hampir se-layar penuh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Overlay Transparan Gelap di atas Foto */
+    background: linear-gradient(to bottom, rgba(11, 15, 25, 0.7), rgba(11, 15, 25, 0.9)), 
+                url('banner-foto.jpg'); /* Pastikan nama file ini sesuai */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efek Parallax */
 }
-.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+    z-index: 2;
+}
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.hero p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
 
-/* --- HERO SECTION --- */
-.hero { text-align: center; padding: 80px 0; }
-.hero h1 { font-size: 3.5rem; margin-bottom: 20px; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
+/* --- BUTTONS --- */
+.btn {
+    padding: 15px 40px;
+    border: 1px solid var(--text-gold);
+    color: var(--text-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: 0.4s;
+}
+.btn:hover {
+    background: var(--text-gold);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
 
-/* --- CARDS (PROJECTS & EXP) --- */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 16px;
+/* --- SECTIONS --- */
+.container { max-width: 1100px; margin: 0 auto; padding: 100px 20px; }
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-align: center;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--text-gold);
+    margin: 20px auto 0;
+}
+
+/* --- CERTIFICATION GRID --- */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.cert-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-glass);
     padding: 30px;
     transition: 0.3s;
-    position: relative;
-    overflow: hidden;
 }
-.card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.3); }
-.card h3 { margin-top: 0; font-size: 1.5rem; }
-.tag {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--primary);
-    font-size: 0.8rem;
-    margin-top: 15px;
-}
+.cert-card:hover { border-color: var(--text-gold); transform: translateY(-5px); }
+.cert-icon { font-size: 2rem; color: var(--text-gold); margin-bottom: 20px; }
+.cert-link { color: var(--text-gray); font-size: 0.9rem; text-decoration: none; border-bottom: 1px solid var(--text-gray); }
 
-/* --- FOOTER --- */
-footer { text-align: center; padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; color: var(--text-muted); }
+/* --- CONTACT SECTION --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+    margin-top: 50px;
+}
+.contact-item i {
+    font-size: 2rem;
+    color: var(--text-gold);
+    margin-bottom: 15px;
+}
+.contact-item h4 { margin: 10px 0 5px; color: var(--text-white); }
+.contact-item a { color: var(--text-gray); text-decoration: none; transition: 0.3s; }
+.contact-item a:hover { color: var(--text-gold); }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links { display: none; } /* Simpel di HP */
+}
