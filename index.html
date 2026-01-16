@@ -5,51 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eep Ridwan Pauji | Home</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="bg-decor blob-1"></div>
-    <div class="bg-decor blob-2"></div>
-    <div id="preloader"><div class="spinner"></div></div>
 
     <nav>
         <a href="index.html" class="nav-logo">EEP<span>.DEV</span></a>
         <div class="nav-links">
             <a href="index.html" class="active">Home</a>
-            <a href="portfolio.html">Portofolio</a> <a href="certifications.html">Sertifikasi</a> <a href="gallery.html">Galeri</a> </div>
+            <a href="portfolio.html">Portofolio</a>
+            <a href="certifications.html">Sertifikasi</a>
+        </div>
     </nav>
 
-    <div class="container" style="display: flex; align-items: center; min-height: 80vh;">
-        <div style="flex: 1;" data-aos="fade-right">
-            <span class="tag tech">SYSTEM DEVELOPER</span> <span class="tag medic">PARAMEDIC</span>
-            <h1 style="font-size: 3.5rem; margin: 15px 0; line-height: 1.1;">
-                Presisi Medis.<br>Logika Digital.
-            </h1>
-            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px;">
-                Selamat datang di ruang kerja digital saya. Saya menggabungkan empati pelayanan kesehatan dengan efisiensi automasi Google Apps Script.
+    <div class="container" style="min-height: 80vh; display: flex; align-items: center; flex-wrap: wrap; gap: 40px;">
+        <div style="flex: 1; min-width: 300px;">
+            <span class="tag tech">SYSTEM DEVELOPER</span> 
+            <span class="tag medic">PARAMEDIC</span>
+            <h1>Presisi Medis.<br>Logika Digital.</h1>
+            <p>
+                Saya <b>Eep Ridwan Pauji</b>. Menggabungkan perawatan pasien (Paramedic) dengan kemampuan coding Google Apps Script. 
+                Membangun sistem automasi untuk efisiensi administrasi kesehatan dan keuangan.
             </p>
-            <div style="display: flex; gap: 15px;">
-                <a href="portfolio.html" class="btn btn-primary">Lihat Project</a>
-                <a href="certifications.html" class="btn" style="background: white; border: 1px solid #cbd5e1;">Lisensi Saya</a>
-            </div>
+            <br>
+            <a href="portfolio.html" class="btn">Lihat Project Saya</a>
+            <a href="https://wa.me/6285888181119" style="margin-left: 15px; text-decoration: none; color: var(--text-muted); font-weight: 600;">Hubungi WhatsApp</a>
         </div>
         
-        <div style="flex: 1; text-align: center;" data-aos="fade-left">
-            <img src="https://drive.google.com/uc?export=view&id=ISI_DENGAN_ID_FOTO_PROFIL_ANDA" 
-                 onerror="this.src='https://via.placeholder.com/400'" 
+        <div style="flex: 1; min-width: 300px; text-align: center;">
+            <img src="https://via.placeholder.com/400x400?text=FOTO+EEP" 
                  alt="Foto Profil" 
-                 style="width: 350px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); transform: rotate(-2deg);">
-            
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
-                *Foto diload langsung dari Google Drive Cloud
-            </p>
+                 style="width: 80%; border-radius: 20px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);">
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-        window.onload = () => document.getElementById('preloader').style.display = 'none';
-    </script>
 </body>
 </html>
