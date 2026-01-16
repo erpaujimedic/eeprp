@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eep Ridwan Pauji</title>
+    <title>Eep Ridwan Pauji | Professional</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-    <nav>
+    <nav data-aos="fade-down" data-aos-duration="1000">
         <a href="index.html" class="nav-logo">EEP<span>.DEV</span></a>
         <div class="nav-links">
             <a href="index.html" class="active">Home</a>
@@ -18,27 +19,87 @@
         </div>
     </nav>
 
-    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; gap: 50px; min-height: 80vh;">
-        
-        <div style="flex: 1; min-width: 300px;">
-            <span class="tag tech">SYSTEM DEVELOPER</span> <span class="tag medic">PARAMEDIC</span>
+    <header class="hero">
+        <div class="hero-text" style="flex: 1; min-width: 300px;" data-aos="fade-right" data-aos-duration="1000">
+            <div style="margin-bottom: 20px;">
+                <span class="tag tech">SYSTEM DEVELOPER</span>
+                <span class="tag medic">PARAMEDIC</span>
+            </div>
             <h1>Presisi Medis.<br>Logika Digital.</h1>
             <p>
-                Saya <b>Eep Ridwan Pauji</b>. Menggabungkan dunia kesehatan dengan teknologi. 
-                Spesialisasi dalam Google Apps Script untuk automasi sistem rumah sakit dan manajemen data.
+                Hai, saya <b>Eep Ridwan Pauji</b>. Saya membangun jembatan antara pelayanan kesehatan yang humanis dengan efisiensi teknologi. 
+                Spesialisasi dalam Google Apps Script Automation & Medical Care.
             </p>
-            <br>
-            <a href="portfolio.html" class="btn">Lihat Karya Saya</a>
-        </div>
-
-        <div style="flex: 1; min-width: 300px;">
-            <div class="image-placeholder" style="height: 350px; border-radius: 20px; transform: rotate(-3deg);">
-                FOTO PROFIL ANDA DISINI
+            <div>
+                <a href="portfolio.html" class="btn btn-primary">Lihat Project <i class="fas fa-arrow-right" style="margin-left:8px; font-size:0.8rem;"></i></a>
+                <a href="https://wa.me/6285888181119" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> Hubungi</a>
             </div>
-            <p style="text-align: center; font-size: 0.8rem;">(Edit HTML untuk masukkan Link Gambar Drive)</p>
         </div>
 
-    </div>
+        <div class="hero-img" style="flex: 1; text-align: center; min-width: 300px;" data-aos="zoom-in" data-aos-duration="1200">
+            <div style="
+                width: 350px; height: 350px; 
+                background: linear-gradient(135deg, #e0f2fe 0%, #fff 100%);
+                border-radius: 40px; 
+                margin: 0 auto; 
+                display: flex; align-items: center; justify-content: center;
+                box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.2);
+                transform: rotate(-3deg); border: 1px solid white;">
+                
+                <i class="fas fa-user-astronaut" style="font-size: 8rem; color: var(--primary); opacity: 0.8;"></i>
+            </div>
+        </div>
+    </header>
 
+    <section class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Keahlian <span>Utama</span></h2>
+            <p>Fokus ganda untuk hasil yang komprehensif.</p>
+        </div>
+
+        <div class="grid-box">
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="img-box" style="background: #eff6ff; color: #3b82f6;">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <span class="tag tech">TECHNOLOGY</span>
+                <h3>Apps Script Automation</h3>
+                <p style="color: #64748b; font-size: 0.95rem;">
+                    Membangun sistem otomatisasi administrasi, notifikasi WA Gateway, dan dashboard keuangan real-time yang terintegrasi Google Sheet.
+                </p>
+            </div>
+
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="img-box" style="background: #fff1f2; color: #e11d48;">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <span class="tag medic">HEALTHCARE</span>
+                <h3>Medical Professional</h3>
+                <p style="color: #64748b; font-size: 0.95rem;">
+                    Praktisi medis aktif (STR Valid) dengan sertifikasi BTCLS. Berpengalaman menangani gawat darurat dan manajemen pasien.
+                </p>
+            </div>
+
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="img-box" style="background: #f0fdf4; color: #16a34a;">
+                    <i class="fas fa-history"></i>
+                </div>
+                <span class="tag" style="background: #f0fdf4; color: #16a34a;">HISTORY</span>
+                <h3>Historical Research</h3>
+                <p style="color: #64748b; font-size: 0.95rem;">
+                    Peneliti independen sejarah pergerakan nasional (PSII & Soekarno). Mendokumentasikan jejak sejarah melalui visual storytelling.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,    // Animasi cuma sekali biar ga pusing
+            offset: 100,   // Mulai animasi pas udah keliatan dikit
+            duration: 800, // Kecepatan animasi (ms)
+        });
+    </script>
 </body>
 </html>
