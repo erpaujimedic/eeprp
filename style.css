@@ -1,74 +1,137 @@
-/* --- TEMA BERSIH & CEPAT --- */
+/* --- MODERN GLASS UI THEME --- */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
 :root {
-    --bg-body: #f8fafc;
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    --blue-tech: #0ea5e9;
-    --red-medic: #e11d48;
+    --primary: #2563eb;
+    --secondary: #db2777;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+    --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
 }
+
+* { box-sizing: border-box; }
 
 body {
-    background-color: var(--bg-body);
+    background: #f1f5f9;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--text-main);
+    color: var(--dark);
     margin: 0;
-    overflow-x: hidden; /* Mencegah scroll samping */
+    overflow-x: hidden;
+    /* Background Gradient Halus */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(219, 39, 119, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
 }
 
-/* NAVIGASI */
+/* --- NAVIGASI MELAYANG --- */
 nav {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 5%;
-    background: white;
-    border-bottom: 1px solid #e2e8f0;
-    position: sticky; top: 0; z-index: 100;
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px); /* Efek Buram Belakangnya */
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: var(--glass-border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
-.nav-logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--text-main); }
-.nav-logo span { color: var(--blue-tech); }
+
+.nav-logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--dark); letter-spacing: -1px; }
+.nav-logo span { color: var(--primary); }
+
 .nav-links a {
-    text-decoration: none; color: var(--text-muted); font-weight: 600; margin-left: 20px;
-    font-size: 0.9rem;
+    text-decoration: none; color: #64748b; font-weight: 600; margin-left: 30px;
+    font-size: 0.95rem; transition: 0.3s; position: relative;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--blue-tech); }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+.nav-links a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -5px; left: 0; background: var(--primary); transition: 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
 
-/* LAYOUT UMUM */
-.container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
-h1 { font-size: 2.5rem; margin-bottom: 15px; line-height: 1.2; }
-p { color: var(--text-muted); line-height: 1.6; }
-
-/* KOTAK KOSONG UNTUK FOTO (PENGGANTI GAMBAR ERROR) */
-.image-placeholder {
-    width: 100%;
-    height: 250px;
-    background-color: #e2e8f0;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #94a3b8;
-    font-weight: bold;
-    margin-bottom: 15px;
-    border: 2px dashed #cbd5e1;
+/* --- HERO SECTION --- */
+.hero {
+    min-height: 85vh;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    max-width: 1200px; margin: 0 auto;
+    flex-wrap: wrap; gap: 40px;
 }
 
-/* KARTU PROJECT */
-.grid-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.card {
-    background: white; padding: 25px; border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #f1f5f9;
+h1 {
+    font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px;
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero p { font-size: 1.15rem; color: #64748b; line-height: 1.7; margin-bottom: 35px; max-width: 500px; }
+
+/* --- GLASS CARDS (KARTU KACA) --- */
+.container { max-width: 1100px; margin: 80px auto; padding: 0 20px; }
+.section-title { margin-bottom: 50px; text-align: center; }
+.section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
+.section-title span { color: var(--primary); }
+
+.grid-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+.glass-card {
+    background: white;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 20px; /* Sudut lebih bulat */
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s ease;
+    position: relative; top: 0;
+    overflow: hidden;
 }
 
-/* TOMBOL */
+/* Hover Effect: Kartu naik ke atas & shadow makin tebal */
+.glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    border-color: var(--primary);
+}
+
+/* --- BUTTONS --- */
 .btn {
-    background: var(--text-main); color: white; padding: 12px 25px;
-    border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600;
+    padding: 14px 35px; border-radius: 50px; font-weight: 700; text-decoration: none;
+    display: inline-block; transition: 0.3s; font-size: 0.95rem; border: none; cursor: pointer;
 }
-.btn:hover { background: var(--blue-tech); }
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+    color: white;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4); }
 
-/* LABEL */
-.tag { font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px; }
-.tag.medic { background: #ffe4e6; color: var(--red-medic); }
-.tag.tech { background: #e0f2fe; color: var(--blue-tech); }
+.btn-secondary {
+    background: white; color: var(--dark); border: 1px solid #cbd5e1;
+    margin-left: 15px;
+}
+.btn-secondary:hover { border-color: var(--dark); background: #f8fafc; }
+
+/* --- TAGS & ICONS --- */
+.tag {
+    font-size: 0.75rem; font-weight: 800; padding: 6px 14px; border-radius: 30px;
+    letter-spacing: 0.5px; display: inline-block; margin-bottom: 15px; text-transform: uppercase;
+}
+.tag.medic { background: #fff1f2; color: #e11d48; }
+.tag.tech { background: #eff6ff; color: #2563eb; }
+
+/* --- RESPONSIVE IMAGE PLACEHOLDER (Stylish) --- */
+.img-box {
+    width: 100%; height: 220px; border-radius: 15px; margin-bottom: 20px;
+    background: #f1f5f9; display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; color: #cbd5e1; transition: 0.3s; overflow: hidden;
+}
+.glass-card:hover .img-box { transform: scale(1.02); }
+.img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero { text-align: center; justify-content: center; padding-top: 40px; }
+    .hero p { margin: 0 auto 30px auto; }
+}
