@@ -3,110 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eep Ridwan Pauji | Professional Portfolio</title>
+    <title>Eep Ridwan Pauji - Paramedic & Developer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <div class="logo">EEP<span class="gold-text">.RIDWAN</span></div>
+        <div class="logo">EEP<span class="gold">.RIDWAN</span></div>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#certifications">Sertifikasi</a>
-            <a href="projects.html">Portofolio</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html" class="active">Home</a>
+            <a href="certifications.html">Sertifikasi</a>
+            <a href="portfolio.html">Portofolio</a>
+            <a href="#contact" onclick="window.scrollTo(0,document.body.scrollHeight);">Kontak</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <p>SYSTEM DEVELOPER & CREATOR</p>
-            <h1>Saya <span class="gold-text">Eep Ridwan Pauji</span></h1>
-            <p>Menciptakan solusi digital yang presisi, efisien, dan memiliki nilai estetika tinggi.</p>
-            <br>
-            <a href="projects.html" class="btn">Lihat Karya Saya</a>
-        </div>
-    </header>
-
-    <section id="about" class="container">
-        <h2 class="section-title">Professional Profile</h2>
-        <div style="text-align: center; max-width: 800px; margin: 0 auto; color: #94a3b8;">
-            <p style="font-size: 1.1rem;">
-                Seorang profesional dengan dedikasi tinggi di bidang pengembangan sistem dan teknologi. 
-                Berpengalaman dalam mengelola database kompleks, membangun arsitektur keamanan login regional, 
-                serta memiliki ketajaman visual dalam desain arsitektur dan konten sejarah.
+    <main class="hero-full">
+        <div style="padding: 20px;">
+            <img src="foto-profil.jpg" alt="Eep Ridwan Pauji" 
+                 style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 30px; box-shadow: 0 0 30px rgba(212,175,55,0.2);">
+            
+            <p style="letter-spacing: 3px; font-size: 0.9rem; color: var(--gold); text-transform: uppercase; margin-bottom: 10px;">
+                Professional Paramedic & System Enthusiast
             </p>
-        </div>
-    </section>
-
-    <section id="certifications" style="background: rgba(255,255,255,0.02);">
-        <div class="container">
-            <h2 class="section-title">Sertifikasi & Lisensi</h2>
-            <div class="cert-grid">
-                
-                <div class="cert-card">
-                    <i class="fas fa-certificate cert-icon"></i>
-                    <h3>System Development</h3>
-                    <p style="color:#94a3b8; font-size: 0.9rem;">Advanced Google Apps Script & Automation.</p>
-                    <br>
-                    <a href="#" class="cert-link">Lihat Kredensial &rarr;</a>
-                </div>
-
-                <div class="cert-card">
-                    <i class="fas fa-database cert-icon"></i>
-                    <h3>Database Management</h3>
-                    <p style="color:#94a3b8; font-size: 0.9rem;">MySQL & Relational Database Design.</p>
-                    <br>
-                    <a href="#" class="cert-link">Lihat Kredensial &rarr;</a>
-                </div>
-
-                <div class="cert-card">
-                    <i class="fas fa-video cert-icon"></i>
-                    <h3>Content Production</h3>
-                    <p style="color:#94a3b8; font-size: 0.9rem;">Videography & Historical Research Documentation.</p>
-                    <br>
-                    <a href="#" class="cert-link">Lihat Karya &rarr;</a>
-                </div>
-
+            
+            <h1 class="hero-title">Eep Ridwan Pauji</h1>
+            
+            <p class="hero-subtitle">
+                Menggabungkan keahlian medis gawat darurat dengan efisiensi teknologi digital. 
+                Ahli dalam penanganan pasien (Nursing) dan pengembangan automasi administrasi (Google Apps Script).
+            </p>
+            
+            <div style="margin-top: 30px;">
+                <a href="portfolio.html" class="btn" style="margin-right: 15px;">Lihat Pengalaman</a>
+                <a href="certifications.html" class="btn" style="background: transparent; border-color: var(--text-gray); color: var(--text-gray);">Lihat Sertifikasi</a>
             </div>
         </div>
-    </section>
+    </main>
 
-    <section id="contact" class="container">
-        <h2 class="section-title">Hubungi Saya</h2>
-        <p style="text-align: center; margin-bottom: 50px; color: #94a3b8;">
-            Terbuka untuk kolaborasi profesional dan diskusi proyek.
-        </p>
-        
-        <div class="contact-grid">
-            <div class="contact-item">
-                <i class="fab fa-whatsapp"></i>
-                <h4>WhatsApp</h4>
-                <a href="https://wa.me/6285888181119" target="_blank">0858-8818-1119</a>
+    <footer id="contact">
+        <div class="contact-container">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">Connect With Me</h2>
+            <p style="color: var(--text-gray);">Siap untuk kolaborasi medis maupun pengembangan sistem.</p>
+            
+            <div class="contact-icons">
+                <div class="c-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/6285888181119" target="_blank">0858-8818-1119</a>
+                </div>
+                <div class="c-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:erpauji.medic@gmail.com">erpauji.medic@gmail.com</a>
+                </div>
+                <div class="c-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/eep-ridwan-pauji" target="_blank">Eep Ridwan Pauji</a>
+                </div>
+                <div class="c-item">
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://instagram.com/eepridwanpauji" target="_blank">@eepridwanpauji</a>
+                </div>
             </div>
-
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <h4>Email</h4>
-                <a href="mailto:erpauji.medic@gmail.com">erpauji.medic@gmail.com</a>
-            </div>
-
-            <div class="contact-item">
-                <i class="fab fa-linkedin"></i>
-                <h4>LinkedIn</h4>
-                <a href="https://www.linkedin.com/in/eep-ridwan-pauji" target="_blank">Eep Ridwan Pauji</a>
-            </div>
-
-            <div class="contact-item">
-                <i class="fab fa-instagram"></i>
-                <h4>Instagram</h4>
-                <a href="https://instagram.com/eepridwanpauji" target="_blank">@eepridwanpauji</a>
-            </div>
+            
+            <p style="margin-top: 40px; font-size: 0.8rem; color: #475569;">&copy; 2026 Eep Ridwan Pauji. Professional Portfolio.</p>
         </div>
-    </section>
-
-    <footer style="text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: #64748b;">
-        <p>&copy; 2026 Eep Ridwan Pauji. All Rights Reserved.</p>
     </footer>
 
 </body>
