@@ -5,70 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio - Eep Ridwan Pauji</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="bg-decor blob-1"></div>
+    <div id="preloader"><div class="spinner"></div></div>
 
     <nav>
-        <div class="nav-logo">EEP<span>.MEDIC</span></div>
+        <a href="index.html" class="nav-logo">EEP<span>.DEV</span></a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="certifications.html">Sertifikasi</a>
             <a href="portfolio.html" class="active">Portofolio</a>
-            <a href="index.html#contact">Kontak</a>
+            <a href="certifications.html">Sertifikasi</a>
+            <a href="gallery.html">Galeri</a>
         </div>
     </nav>
 
-    <div class="container fade-in">
-        <h1 style="border-left: 5px solid var(--accent-tech); padding-left: 20px; margin-bottom: 50px;">
-            PROJECT & EXPERIENCE
-        </h1>
-
-        <h3 style="color: var(--accent-tech); margin-bottom: 20px;">SYSTEM DEVELOPMENT</h3>
-        <div class="grid-box" style="margin-bottom: 60px;">
-            
-            <div class="card tech">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                    <i class="fas fa-code" style="font-size: 1.5rem; color: var(--accent-tech);"></i>
-                    <span style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">2026</span>
-                </div>
-                <h3>Finance Automation System</h3>
-                <p>Membangun ekosistem manajemen keuangan pribadi yang kompleks. Menggunakan Google Apps Script untuk menghubungkan Form input dengan Database Spreadsheet secara real-time.</p>
-            </div>
-
-            <div class="card tech">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                    <i class="fas fa-shield-alt" style="font-size: 1.5rem; color: var(--accent-tech);"></i>
-                    <span style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">2025</span>
-                </div>
-                <h3>Regional Supervisor Auth</h3>
-                <p>Sistem keamanan login bertingkat. Logika backend memastikan user hanya bisa mengakses data sesuai regional tugasnya masing-masing.</p>
-            </div>
+    <div class="container">
+        <div class="page-header" data-aos="fade-down">
+            <h1>Selected Projects</h1>
+            <p>Kumpulan karya pengembangan sistem automasi dan pengalaman klinis.</p>
         </div>
 
-        <h3 style="color: var(--accent-medic); margin-bottom: 20px;">MEDICAL EXPERIENCE</h3>
+        <div style="margin-bottom: 30px;">
+            <h3 style="color: var(--blue-tech);"><i class="fas fa-laptop-code"></i> DIGITAL SYSTEM</h3>
+        </div>
+
         <div class="grid-box">
-            
-            <div class="card medic">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                    <i class="fas fa-user-nurse" style="font-size: 1.5rem; color: var(--accent-medic);"></i>
-                    <span style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">PRESENT</span>
-                </div>
-                <h3>Paramedic / Nurse</h3>
-                <p>Melakukan tindakan medis gawat darurat, manajemen pasien rawat inap, dan berkolaborasi dalam tim medis untuk penanganan kasus kritis.</p>
+            <div class="glass-card" data-aos="fade-up">
+                <div class="tag tech">APPS SCRIPT</div>
+                <img src="https://drive.google.com/uc?export=view&id=ISI_ID_GAMBAR_PROJECT_1" 
+                     onerror="this.src='https://via.placeholder.com/600x400'" class="responsive" style="height: 200px; margin-bottom: 15px;">
+                
+                <h3>Finance Automation System</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    Sistem manajemen keuangan pribadi kompleks. Fitur: Input Form Custom, Dashboard Real-time, dan Notifikasi WA Gateway.
+                </p>
+                <a href="#" style="color: var(--blue-tech); font-weight: bold; text-decoration: none;">Lihat Kode →</a>
+            </div>
+
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="tag tech">SERVER</div>
+                <img src="https://drive.google.com/uc?export=view&id=ISI_ID_GAMBAR_PROJECT_2" 
+                     onerror="this.src='https://via.placeholder.com/600x400'" class="responsive" style="height: 200px; margin-bottom: 15px;">
+                
+                <h3>Web Deployment (IDCloudHost)</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    Deploy aplikasi berbasis Localhost ke VPS Public. Konfigurasi DNS, SSL, dan Firewall dasar.
+                </p>
             </div>
         </div>
+
+        <div style="margin: 50px 0 30px 0;">
+            <h3 style="color: var(--red-medic);"><i class="fas fa-user-nurse"></i> CLINICAL EXPERIENCE</h3>
+        </div>
+
+        <div class="grid-box">
+            <div class="glass-card" data-aos="fade-up">
+                <div class="tag medic">EMERGENCY</div>
+                <h3>Penanganan Gawat Darurat</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    Manajemen pasien trauma dan henti jantung sesuai standar BTCLS. Bekerja di bawah tekanan tinggi.
+                </p>
+            </div>
+        </div>
+
     </div>
 
-    <footer id="contact">
-        <div class="container">
-            <div class="social-icons">
-                <a href="https://wa.me/6285888181119"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:erpauji.medic@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/eep-ridwan-pauji"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-muted);">&copy; 2026 Eep Ridwan Pauji.</p>
-        </div>
-    </footer>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        window.onload = () => document.getElementById('preloader').style.display = 'none';
+    </script>
 </body>
 </html>
