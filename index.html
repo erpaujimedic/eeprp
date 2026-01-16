@@ -3,230 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Profesional - ERP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- RESET & VARIABLES --- */
-        :root {
-            --primary: #0f172a; /* Warna gelap elegan */
-            --accent: #3b82f6;  /* Biru profesional */
-            --bg: #f8fafc;
-            --text-main: #334155;
-            --text-light: #64748b;
-        }
-        * { box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.7;
-        }
-        
-        /* --- LAYOUT UTAMA --- */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        section { padding: 60px 0; border-bottom: 1px solid #e2e8f0; }
-
-        /* --- HERO SECTION (HEADER) --- */
-        header {
-            background: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            background-color: #ddd; /* Placeholder warna abu */
-        }
-        h1 { font-size: 2.5rem; margin: 10px 0; color: var(--primary); }
-        .role { font-size: 1.2rem; color: var(--accent); font-weight: 600; }
-        .bio { max-width: 600px; margin: 20px auto; color: var(--text-light); }
-
-        /* --- SECTION TITLES --- */
-        h2.section-title {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-        }
-        h2.section-title::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: #e2e8f0;
-            margin-left: 20px;
-        }
-
-        /* --- TIMELINE PENGALAMAN (WORK HISTORY) --- */
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-            border-left: 2px solid #e2e8f0;
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -37px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 4px solid white;
-        }
-        .date { font-size: 0.9rem; color: var(--accent); font-weight: bold; }
-        .job-title { font-size: 1.2rem; font-weight: 700; margin: 5px 0; color: var(--primary); }
-        .company { font-style: italic; color: var(--text-light); margin-bottom: 10px; display: block;}
-        
-        /* --- GRID GALLERY / DOKUMENTASI --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-        .project-card:hover { transform: translateY(-5px); }
-        .card-content { padding: 20px; }
-        .card-content h3 { margin-top: 0; color: var(--primary); }
-        .tag-container { margin-top: 15px; }
-        .tag {
-            display: inline-block;
-            background: #eff6ff;
-            color: var(--accent);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        /* --- FOOTER --- */
-        footer { text-align: center; padding: 40px; color: var(--text-light); font-size: 0.9rem; }
-    </style>
+    <title>ERP - System Developer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-img">
-            
-            <h1>Nama Lengkap Anda</h1>
-            <p class="role">System Developer | Web Creator</p>
-            <p class="bio">
-                Saya adalah pengembang sistem yang berfokus pada efisiensi dan otomatisasi. 
-                Memiliki ketertarikan mendalam pada desain arsitektur rumah dan sejarah Indonesia. 
-                Selalu mencari cara untuk menggabungkan logika pemrograman dengan estetika.
-            </p>
+    <nav>
+        <div class="logo">ERP<span>.Dev</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="projects.html">Portofolio</a>
+            <a href="mailto:emailanda@example.com">Kontak</a>
         </div>
+    </nav>
+
+    <header class="hero container">
+        <h1>Building Digital Systems<br>with Precision.</h1>
+        <p>Saya ERP, seorang System Developer yang fokus pada efisiensi bisnis, keamanan data, dan desain fungsional.</p>
+        <a href="projects.html" class="btn">Lihat Karya Saya</a>
     </header>
 
-    <section>
-        <div class="container">
-            <h2 class="section-title">Pengalaman & Riwayat Kerja</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="date">2024 - Sekarang</span>
-                    <h3 class="job-title">Senior System Developer</h3>
-                    <span class="company">Nama Perusahaan Anda</span>
-                    <p>
-                        Bertanggung jawab penuh atas pengembangan sistem internal perusahaan.
-                        <ul>
-                            <li>Mengembangkan Dashboard Monitoring Regional untuk SPV.</li>
-                            <li>Melakukan maintenance server (Localhost & Cloud).</li>
-                            <li>Memimpin tim teknis dalam migrasi database.</li>
-                        </ul>
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="date">2022 - 2024</span>
-                    <h3 class="job-title">Junior Programmer</h3>
-                    <span class="company">Nama Perusahaan Lama</span>
-                    <p>
-                        Membangun aplikasi web sederhana dan mendukung operasional IT harian.
-                        Berhasil membuat sistem absensi karyawan berbasis web.
-                    </p>
-                </div>
+    <section class="container">
+        <h2 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">Keahlian Utama</h2>
+        <div class="grid" style="margin-top: 30px;">
+            <div class="card">
+                <h3>Backend & System</h3>
+                <p>Spesialisasi dalam logika database yang kompleks, API integration, dan keamanan data user (Login Auth).</p>
             </div>
-        </div>
-    </section>
-
-    <section style="background-color: white;">
-        <div class="container">
-            <h2 class="section-title">Dokumentasi Project & Karya</h2>
-            
-            <div class="project-grid">
-                <div class="project-card">
-                    <div class="card-content">
-                        <h3>Finance Management System</h3>
-                        <p>Aplikasi pencatat keuangan pribadi (Gaji, Hutang, Tabungan) menggunakan Google Apps Script.</p>
-                        <div class="tag-container">
-                            <span class="tag">Google Apps Script</span>
-                            <span class="tag">Automation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-content">
-                        <h3>Regional Login Auth</h3>
-                        <p>Sistem keamanan login bertingkat dimana SPV Regional 1 hanya bisa melihat data regionnya sendiri.</p>
-                        <div class="tag-container">
-                            <span class="tag">PHP</span>
-                            <span class="tag">Security</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-content">
-                        <h3>Konten Sejarah & Video</h3>
-                        <p>Dokumentasi dan riset visual tentang Rumah HOS Tjokroaminoto dan jejak Soekarno.</p>
-                        <div class="tag-container">
-                            <span class="tag">Videography</span>
-                            <span class="tag">History</span>
-                        </div>
-                    </div>
-                </div>
-                
-                 <div class="project-card">
-                    <div class="card-content">
-                        <h3>Design Rumah Minimalis</h3>
-                        <p>Eksplorasi desain hunian modern dengan efisiensi ruang.</p>
-                        <div class="tag-container">
-                            <span class="tag">Architecture</span>
-                            <span class="tag">Design</span>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="card">
+                <h3>Web Automation</h3>
+                <p>Mengotomatisasi pekerjaan manual menggunakan Google Apps Script dan custom dashboard.</p>
+            </div>
+            <div class="card">
+                <h3>Design & Architecture</h3>
+                <p>Memiliki pandangan estetika dalam desain UI aplikasi maupun desain arsitektur hunian.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 ERP. Dibuat dengan semangat.</p>
+        <p>&copy; 2026 ERP Developer Portfolio.</p>
     </footer>
 
 </body>
