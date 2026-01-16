@@ -9,84 +9,64 @@
 <body>
 
     <nav>
-        <div class="logo">EEP<span class="gold">.RIDWAN</span></div>
+        <div class="nav-logo">EEP<span>.MEDIC</span></div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="certifications.html">Sertifikasi</a>
             <a href="portfolio.html" class="active">Portofolio</a>
-            <a href="#contact" onclick="window.scrollTo(0,document.body.scrollHeight);">Kontak</a>
+            <a href="index.html#contact">Kontak</a>
         </div>
     </nav>
 
-    <main class="main-content">
-        <header style="margin-bottom: 50px;">
-            <h1>Pengalaman & Karya</h1>
-            <p style="color: var(--text-gray);">Dedikasi dalam pelayanan medis dan inovasi sistem digital.</p>
-        </header>
+    <div class="container fade-in">
+        <h1 style="border-left: 5px solid var(--accent-tech); padding-left: 20px; margin-bottom: 50px;">
+            PROJECT & EXPERIENCE
+        </h1>
 
-        <h3 class="gold" style="margin-bottom: 20px;">Riwayat Profesional</h3>
-        <div style="border-left: 2px solid var(--border); padding-left: 30px; margin-bottom: 60px;">
+        <h3 style="color: var(--accent-tech); margin-bottom: 20px;">SYSTEM DEVELOPMENT</h3>
+        <div class="grid-box" style="margin-bottom: 60px;">
             
-            <div style="margin-bottom: 40px; position: relative;">
-                <div style="position: absolute; left: -36px; top: 0; width: 10px; height: 10px; background: var(--gold); border-radius: 50%;"></div>
-                <span style="font-size: 0.8rem; color: var(--gold); border: 1px solid var(--gold); padding: 2px 8px;">202X - Sekarang</span>
-                <h2 style="margin: 10px 0 5px;">Paramedic / Nurse</h2>
-                <p style="font-style: italic; color: var(--text-gray); margin-bottom: 10px;">Nama Rumah Sakit / Klinik</p>
-                <ul style="color: var(--text-white); line-height: 1.6;">
-                    <li>Memberikan asuhan keperawatan gawat darurat dan rawat inap.</li>
-                    <li>Melakukan triase dan penanganan pasien sesuai SOP medis.</li>
-                    <li>Berkolaborasi dengan dokter dan tim medis lain dalam tindakan life-saving.</li>
-                </ul>
+            <div class="card tech">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    <i class="fas fa-code" style="font-size: 1.5rem; color: var(--accent-tech);"></i>
+                    <span style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">2026</span>
+                </div>
+                <h3>Finance Automation System</h3>
+                <p>Membangun ekosistem manajemen keuangan pribadi yang kompleks. Menggunakan Google Apps Script untuk menghubungkan Form input dengan Database Spreadsheet secara real-time.</p>
             </div>
 
-            <div style="margin-bottom: 40px; position: relative;">
-                <div style="position: absolute; left: -36px; top: 0; width: 10px; height: 10px; background: var(--text-gray); border-radius: 50%;"></div>
-                <span style="font-size: 0.8rem; color: var(--text-gray); border: 1px solid var(--text-gray); padding: 2px 8px;">20XX - 20XX</span>
-                <h2 style="margin: 10px 0 5px;">Posisi Sebelumnya</h2>
-                <p style="font-style: italic; color: var(--text-gray);">Instansi Sebelumnya</p>
+            <div class="card tech">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    <i class="fas fa-shield-alt" style="font-size: 1.5rem; color: var(--accent-tech);"></i>
+                    <span style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">2025</span>
+                </div>
+                <h3>Regional Supervisor Auth</h3>
+                <p>Sistem keamanan login bertingkat. Logika backend memastikan user hanya bisa mengakses data sesuai regional tugasnya masing-masing.</p>
             </div>
         </div>
 
-
-        <h3 class="gold" style="margin-bottom: 20px;">Digital Innovation & Automation</h3>
-        <p style="color: var(--text-gray); margin-bottom: 30px;">
-            Proyek pengembangan sistem yang saya buat untuk meningkatkan efisiensi administrasi dan manajemen data.
-        </p>
-
-        <div class="grid-2">
+        <h3 style="color: var(--accent-medic); margin-bottom: 20px;">MEDICAL EXPERIENCE</h3>
+        <div class="grid-box">
             
-            <div class="card">
-                <h3>Finance Management System</h3>
-                <p style="color: var(--text-gray); margin-bottom: 15px;">
-                    Aplikasi manajemen keuangan pribadi yang mencatat pemasukan, pengeluaran, hutang, dan tabungan secara otomatis.
-                </p>
-                <div class="tech-tag">Google Apps Script</div>
-                <div class="tech-tag">Spreadsheet Automation</div>
+            <div class="card medic">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    <i class="fas fa-user-nurse" style="font-size: 1.5rem; color: var(--accent-medic);"></i>
+                    <span style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">PRESENT</span>
+                </div>
+                <h3>Paramedic / Nurse</h3>
+                <p>Melakukan tindakan medis gawat darurat, manajemen pasien rawat inap, dan berkolaborasi dalam tim medis untuk penanganan kasus kritis.</p>
             </div>
-
-            <div class="card">
-                <h3>Regional Auth Login</h3>
-                <p style="color: var(--text-gray); margin-bottom: 15px;">
-                    Sistem keamanan login bertingkat untuk Supervisor. Membatasi akses data user hanya sesuai wilayah kerjanya (Regional Blocking).
-                </p>
-                <div class="tech-tag">Security Logic</div>
-                <div class="tech-tag">Database Management</div>
-            </div>
-
         </div>
-
-    </main>
+    </div>
 
     <footer id="contact">
-        <div class="contact-container">
-            <h2 style="font-size: 2rem; margin-bottom: 10px;">Hubungi Saya</h2>
-            <div class="contact-icons">
-                <div class="c-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/6285888181119">0858-8818-1119</a></div>
-                <div class="c-item"><i class="fas fa-envelope"></i><a href="mailto:erpauji.medic@gmail.com">Email Me</a></div>
-                <div class="c-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/eep-ridwan-pauji">LinkedIn</a></div>
-                <div class="c-item"><i class="fab fa-instagram"></i><a href="https://instagram.com/eepridwanpauji">Instagram</a></div>
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://wa.me/6285888181119"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:erpauji.medic@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/eep-ridwan-pauji"><i class="fab fa-linkedin"></i></a>
             </div>
-            <p style="margin-top: 40px; font-size: 0.8rem; color: #475569;">&copy; 2026 Eep Ridwan Pauji.</p>
+            <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-muted);">&copy; 2026 Eep Ridwan Pauji.</p>
         </div>
     </footer>
 
