@@ -3,53 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Project</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Sertifikasi - Eep Ridwan Pauji</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen font-[Inter]">
 
-    <nav>
-        <a href="index.html" class="nav-logo">EEP<span>.DEV</span></a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="portfolio.html" class="active">Portofolio</a>
-            <a href="certifications.html">Sertifikasi</a>
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-5xl">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-bold text-slate-900">Lisensi & Sertifikasi</h1>
+            <p class="text-slate-500 mt-2">Dokumen kualifikasi pendukung profesi medis.</p>
         </div>
-    </nav>
 
-    <div class="container">
-        <h1>Project & Pengalaman</h1>
-        <p style="margin-bottom: 40px;">Kombinasi karya pengembangan sistem dan praktik klinis.</p>
-
-        <h3 style="color: var(--blue-tech); margin-top: 40px;">DEVELOPMENT</h3>
-        <div class="grid-box">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div class="card">
-                <span class="tag tech">APPS SCRIPT</span>
-                <div class="image-placeholder">GAMBAR FINANCE SYSTEM</div>
-                <h3>Finance Automation</h3>
-                <p>Sistem pencatatan keuangan pribadi. Integrasi Google Form ke Spreadsheet dengan dashboard otomatis.</p>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition">
+                <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-lg text-teal-600 mb-4 font-bold text-xl">B</div>
+                <h3 class="font-bold text-slate-900">BTCLS</h3>
+                <p class="text-sm text-slate-500 mb-3">Basic Trauma Cardiac Life Support</p>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded font-mono">Exp: 2027</span>
             </div>
 
-            <div class="card">
-                <span class="tag tech">SERVER</span>
-                <div class="image-placeholder">GAMBAR SERVER/DEPLOY</div>
-                <h3>Deploy to Cloud</h3>
-                <p>Deploy aplikasi web dari Localhost ke IDCloudHost. Konfigurasi VPS dan keamanan dasar.</p>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition">
+                <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-lg text-teal-600 mb-4 font-bold text-xl">H</div>
+                <h3 class="font-bold text-slate-900">HIPERKES</h3>
+                <p class="text-sm text-slate-500 mb-3">Hiperkes Asosiasi</p>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded font-mono">Lifetime</span>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition">
+                <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-lg text-teal-600 mb-4 font-bold text-xl">S</div>
+                <h3 class="font-bold text-slate-900">Spirometri</h3>
+                <p class="text-sm text-slate-500 mb-3">Training penggunaan alat MIR</p>
+                <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded font-mono">Teknis</span>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition">
+                <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-lg text-teal-600 mb-4 font-bold text-xl">P</div>
+                <h3 class="font-bold text-slate-900">PPI Dasar</h3>
+                <p class="text-sm text-slate-500 mb-3">Pencegahan Infeksi</p>
+                <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded font-mono">Nasional</span>
+            </div>
+
+        </div>
+
+        <div class="mt-12">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">File Sertifikat (PDF)</h3>
+            <div class="bg-white rounded-xl border border-slate-200 divide-y divide-slate-100">
+                <div class="p-4 flex justify-between items-center hover:bg-slate-50 transition">
+                    <div class="flex items-center gap-3">
+                        <span class="text-red-500 font-bold text-2xl">PDF</span>
+                        <span class="font-medium text-slate-700">Sertifikat_BTCLS_2027.pdf</span>
+                    </div>
+                    <a href="#" class="text-teal-600 text-sm font-bold hover:underline">Download</a>
+                </div>
+                <div class="p-4 flex justify-between items-center hover:bg-slate-50 transition">
+                    <div class="flex items-center gap-3">
+                        <span class="text-red-500 font-bold text-2xl">PDF</span>
+                        <span class="font-medium text-slate-700">Sertifikat_Hiperkes.pdf</span>
+                    </div>
+                    <a href="#" class="text-teal-600 text-sm font-bold hover:underline">Download</a>
+                </div>
             </div>
         </div>
 
-        <h3 style="color: var(--red-medic); margin-top: 40px;">MEDICAL</h3>
-        <div class="grid-box">
-            <div class="card">
-                <span class="tag medic">EMERGENCY</span>
-                <div class="image-placeholder">FOTO KEGIATAN MEDIS</div>
-                <h3>Paramedic Care</h3>
-                <p>Penanganan gawat darurat dan perawatan pasien rawat inap dengan standar medis tinggi.</p>
-            </div>
-        </div>
+    </main>
 
-    </div>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
