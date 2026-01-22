@@ -61,85 +61,99 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. LOGIC HALAMAN PORTFOLIO
+// 4. LOGIC HALAMAN PORTFOLIO (NEW LINKEDIN STYLE)
     const portfolioList = document.getElementById('portfolio-list');
     if (portfolioList && typeof myData !== 'undefined') {
-        myData.experience.forEach((exp, index) => {
-            const hasDocs = exp.docs && exp.docs.length > 0;
-            const clickAttr = hasDocs ? `onclick="openModal('exp', ${index})"` : "";
-            const cursor = hasDocs ? "cursor-pointer hover:bg-slate-50 hover:border-teal-400" : "";
-            const badge = hasDocs ? `<span class="hidden sm:inline-block ml-3 px-2 py-0.5 bg-teal-100 text-teal-700 text-[10px] rounded font-bold uppercase tracking-wide">Ada Dokumentasi 📸</span>` : "";
+        myData.experience.forEach((companyData, companyIndex) => {
+            
+            // Loop Jabatan (Roles)
+            let rolesHTML = '';
+            companyData.roles.forEach((role, roleIndex) => {
+                const hasDocs = role.docs && role.docs.length > 0;
+                
+                // Style tombol dokumentasi (jika ada)
+                const docBadge = hasDocs 
+                    ? `<button onclick="openModal('exp', ${companyIndex}, ${roleIndex})" class="mt-2 text-xs flex items-center gap-1 text-teal-600 font-bold bg-teal-50 px-2 py-1 rounded hover:bg-teal-100 transition">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        Lihat Foto
+                      </button>` 
+                    : '';
 
-            portfolioList.innerHTML += `
-            <div ${clickAttr} class="relative pl-8 md:pl-10 border-l-2 border-slate-200 pb-12 last:pb-0 group ${cursor} transition p-4 rounded-r-xl">
-                <div class="absolute -left-[9px] top-6 w-4 h-4 bg-white border-4 border-teal-500 rounded-full group-hover:scale-125 transition shadow-sm"></div>
-                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-teal-600 transition">${exp.role} ${badge}</h3>
-                        <div class="text-slate-500 font-medium">${exp.company}</div>
+                // Garis Timeline (Putus-putus jika jabatan lama, Solid jika jabatan terbaru)
+                const lineStyle = roleIndex === companyData.roles.length - 1 ? '' : 'border-l-2 border-slate-200';
+                
+                rolesHTML += `
+                <div class="relative pl-8 pb-8 ${lineStyle} last:pb-0 ml-2">
+                    <div class="absolute -left-[5px] top-1.5 w-3 h-3 bg-slate-300 rounded-full border-2 border-white ring-1 ring-slate-100 group-hover:bg-teal-500 transition"></div>
+                    
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1">
+                        <h4 class="text-lg font-bold text-slate-800">${role.title}</h4>
+                        <span class="text-xs font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded">${role.period}</span>
                     </div>
-                    <span class="mt-2 sm:mt-0 text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">${exp.period}</span>
+                    <div class="text-xs text-slate-500 mb-2 font-medium">${role.type}</div>
+                    
+                    <ul class="list-disc list-outside ml-4 text-slate-600 text-sm space-y-1 mb-2">
+                        ${role.desc.map(d => `<li>${d}</li>`).join('')}
+                    </ul>
+                    ${docBadge}
+                </div>`;
+            });
+
+            // Bungkus per Perusahaan
+            portfolioList.innerHTML += `
+            <div class="mb-8 last:mb-0 group">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-lg shadow-sm border border-slate-100 flex items-center justify-center text-slate-700 shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-extrabold text-slate-900 leading-tight">${companyData.company}</h3>
+                        <p class="text-sm text-slate-500">${companyData.location}</p>
+                    </div>
                 </div>
-                <ul class="list-disc list-outside ml-4 text-slate-600 text-sm space-y-1 mt-3">
-                    ${exp.desc.map(d => `<li>${d}</li>`).join('')}
-                </ul>
-                ${hasDocs ? `<div class="mt-3 text-xs text-teal-600 font-bold sm:hidden">Tap untuk lihat foto &rarr;</div>` : ''}
+                <div class="pl-6">
+                    ${rolesHTML}
+                </div>
             </div>`;
         });
     }
 
-    // 5. LOGIC HALAMAN SERTIFIKASI
-    const certList = document.getElementById('cert-list');
-    if (certList && typeof myData !== 'undefined') {
-        myData.certificates.forEach((cert, index) => {
-            certList.innerHTML += `
-            <div onclick="openModal('cert', ${index})" class="bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xl hover:-translate-y-1 transition cursor-pointer group relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                    <svg class="w-16 h-16 text-teal-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z" /></svg>
-                </div>
-                <div class="w-12 h-12 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600 font-bold text-xl mb-4 group-hover:bg-teal-600 group-hover:text-white transition shadow-sm">${cert.icon}</div>
-                <h3 class="text-lg font-bold text-slate-900 mb-1 leading-tight">${cert.title}</h3>
-                <p class="text-xs text-slate-500 font-medium uppercase tracking-wide mb-3">${cert.issuer}</p>
-                <div class="flex justify-between items-center mt-4 border-t border-slate-100 pt-3">
-                    <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded font-mono">${cert.exp}</span>
-                    <span class="text-xs font-bold text-teal-600 group-hover:underline">Lihat Sertifikat &rarr;</span>
-                </div>
-            </div>`;
-        });
-    }
-});
-
-// === SYSTEM MODAL (POPUP) ===
-function openModal(type, index) {
+// === UPDATE SYSTEM MODAL (POPUP) ===
+// Fungsi ini perlu diupdate karena strukturnya sekarang berubah (Ada Index Perusahaan & Index Role)
+function openModal(type, index1, index2 = null) {
     const modal = document.getElementById('globalModal');
     const panel = document.getElementById('modalPanel');
     const content = document.getElementById('modalContent');
     
     modal.classList.remove('hidden');
-    // Animasi Fade In
     setTimeout(() => {
         modal.classList.remove('opacity-0');
         panel.classList.remove('scale-95');
     }, 10);
 
     if (type === 'exp') {
-        const data = myData.experience[index];
+        // index1 = index perusahaan, index2 = index jabatan
+        const data = myData.experience[index1].roles[index2];
+        const companyName = myData.experience[index1].company;
+        
         const images = data.docs.map(img => 
-            `<img src="${img}" class="w-full h-auto rounded-lg shadow-md border border-slate-100" loading="lazy">`
+            `<img src="${img}" class="w-full h-auto rounded-lg shadow-md border border-slate-100 mb-2" loading="lazy">`
         ).join('');
         
         content.innerHTML = `
             <div class="border-b border-slate-100 pb-4 mb-4">
-                <h2 class="text-2xl font-bold text-slate-900">${data.role}</h2>
-                <p class="text-slate-500">${data.company}</p>
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-wide bg-teal-50 px-2 py-1 rounded mb-2 inline-block">Dokumentasi</span>
+                <h2 class="text-2xl font-bold text-slate-900">${data.title}</h2>
+                <p class="text-slate-500 font-medium text-lg">${companyName}</p>
+                <p class="text-sm text-slate-400 mt-1">${data.period}</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
                 ${images}
             </div>
         `;
     } else if (type === 'cert') {
-        const data = myData.certificates[index];
-        // Cek ekstensi file
+        // Logic Sertifikat TETAP SAMA seperti sebelumnya
+        const data = myData.certificates[index1];
         const isPdf = data.file.toLowerCase().endsWith('.pdf');
         
         let mediaDisplay = '';
@@ -156,7 +170,6 @@ function openModal(type, index) {
                     <p class="text-sm text-slate-500">${data.issuer}</p>
                 </div>
                 <a href="${data.file}" target="_blank" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition shadow-sm flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                     Download
                 </a>
             </div>
@@ -165,16 +178,4 @@ function openModal(type, index) {
             </div>
         `;
     }
-}
-
-function closeModal() {
-    const modal = document.getElementById('globalModal');
-    const panel = document.getElementById('modalPanel');
-    
-    modal.classList.add('opacity-0');
-    panel.classList.add('scale-95');
-    
-    setTimeout(() => {
-        modal.classList.add('hidden');
-    }, 300);
 }
