@@ -23,48 +23,71 @@ const myData = {
         }
     ],
 
-    // === BAGIAN 3: PORTFOLIO (PENGALAMAN KERJA) ===
+// === BAGIAN 3: PORTFOLIO (PENGALAMAN KERJA - LINKEDIN STYLE) ===
     experience: [
         {
-            id: "exp1",
-            role: "Perawat / PIC Onsite",
             company: "Tirta Medical Centre",
-            period: "Agustus 2023 - Saat ini",
-            desc: [
-                "Mengkoordinasikan tim MCU Perusahaan seluruh Indonesia.",
-                "Melakukan pemeriksaan fisik dan penunjang medis.",
-                "Manajemen data kesehatan karyawan."
-            ],
-            // Dokumentasi Foto (Ganti dengan foto asli Anda nanti)
-            docs: [
-                "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1584036561566-b930895d3052?q=80&w=800&auto=format&fit=crop"
+            location: "Jakarta, Indonesia",
+            // Daftar Jabatan di perusahaan ini (Urutkan dari yang TERBARU di atas)
+            roles: [
+                {
+                    title: "PIC Onsite (Promosi)",
+                    period: "Jan 2024 - Saat ini",
+                    type: "Full-time",
+                    desc: [
+                        "Naik jabatan menjadi koordinator tim MCU seluruh Indonesia.",
+                        "Supervisi operasional medis di lapangan."
+                    ],
+                    // Dokumentasi khusus jabatan ini
+                    docs: [
+                        "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop"
+                    ]
+                },
+                {
+                    title: "Perawat Medis",
+                    period: "Agustus 2023 - Des 2023",
+                    type: "Contract",
+                    desc: [
+                        "Melakukan pemeriksaan fisik karyawan.",
+                        "Input data hasil MCU."
+                    ],
+                    docs: [] // Kosongkan jika tidak ada foto
+                }
             ]
         },
         {
-            id: "exp2",
-            role: "Paramedis Project",
             company: "PT. Kimberly-Clark Softex",
-            period: "Maret 2023 - Desember 2023",
-            desc: [
-                "Standby klinik untuk penanganan kasus emergency.",
-                "Melakukan hygiene inspection area pabrik.",
-                "Promosi kesehatan kerja."
-            ],
-            docs: [
-                "https://images.unsplash.com/photo-1516574187841-69301976e499?q=80&w=800&auto=format&fit=crop"
+            location: "Karawang, Jawa Barat",
+            roles: [
+                {
+                    title: "Paramedis Project",
+                    period: "Maret 2023 - Desember 2023",
+                    type: "Project Based",
+                    desc: [
+                        "Standby klinik emergency 24 jam.",
+                        "Hygiene inspection area pabrik."
+                    ],
+                    docs: [
+                        "https://images.unsplash.com/photo-1516574187841-69301976e499?q=80&w=800&auto=format&fit=crop"
+                    ]
+                }
             ]
         },
         {
-            id: "exp3",
-            role: "Perawat Klinik",
             company: "Pondok Pesantren Al-Hassan",
-            period: "Mar 2022 - Mar 2023",
-            desc: [
-                "Pelayanan kesehatan primer santri.",
-                "Screening kesehatan berkala."
-            ],
-            docs: [] // Kosongkan jika tidak ada foto
+            location: "Bekasi",
+            roles: [
+                {
+                    title: "Perawat Klinik",
+                    period: "Mar 2022 - Mar 2023",
+                    type: "Full-time",
+                    desc: [
+                        "Pelayanan kesehatan primer santri.",
+                        "Program promosi kesehatan."
+                    ],
+                    docs: []
+                }
+            ]
         }
     ],
 
