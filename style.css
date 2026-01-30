@@ -1,92 +1,37 @@
-const myData = {
-    profile: {
-        name: "Eep Ridwan Pauji",
-        title: "Professional Medic & HSE Specialist",
-        email: "erpauji.medic@gmail.com",
-        location: "Jakarta, Indonesia",
-        summary: "Praktisi medis berlisensi dengan spesialisasi Kesehatan & Keselamatan Kerja (K3/HSE). Berpengalaman dalam manajemen kesehatan onsite, tanggap darurat, dan administrasi medis korporat. Siap memberikan standar kesehatan tertinggi untuk perusahaan Anda.",
-        // Foto profil (Ganti dengan foto asli Anda yang profesional)
-        photo: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop" 
-    },
+/* --- TAMBAHAN VISUAL FX DI STYLE.CSS --- */
 
-    // PENGGANTI BLOG: Fokus pada apa yang bisa Anda tawarkan ke perusahaan
-    services: [
-        {
-            title: "Occupational Health",
-            desc: "Penerapan HIPERKES dan manajemen MCU karyawan.",
-            icon: "🏥"
-        },
-        {
-            title: "Emergency Response",
-            desc: "Kesiapsiagaan BTCLS dan penanganan trauma onsite.",
-            icon: "🚑"
-        },
-        {
-            title: "Health Administration",
-            desc: "Pelaporan medis akurat & analisis data kesehatan kerja.",
-            icon: "📊"
-        },
-        {
-            title: "HSE Implementation",
-            desc: "Inspeksi hygiene dan identifikasi bahaya kerja.",
-            icon: "🛡️"
-        }
-    ],
+/* Latar belakang pola grid halus */
+.bg-grid-pattern {
+    background-color: #f8fafc;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 30px 30px;
+}
 
-    experience: [
-        {
-            company: "Tirta Medical Centre",
-            location: "Jakarta",
-            period: "2023 - Present",
-            logo: "T", // Bisa diganti URL logo jika ada
-            roles: [
-                {
-                    title: "PIC Onsite Coordinator",
-                    period: "Jan 2024 - Sekarang",
-                    desc: "Mengkoordinasikan operasional MCU onsite di seluruh wilayah kerja, memastikan kepatuhan SOP medis, dan supervisi tim lapangan."
-                },
-                {
-                    title: "Medical Staff",
-                    period: "Agust 2023 - Des 2023",
-                    desc: "Melaksanakan pemeriksaan fisik karyawan (TTV, Spirometri, Audiometri) dan input data rekam medis elektronik."
-                }
-            ],
-            docs: ["https://images.unsplash.com/photo-1576091160550-217358c7e618?auto=format&fit=crop&q=80&w=800"]
-        },
-        {
-            company: "PT. Kimberly-Clark Softex",
-            location: "Karawang",
-            period: "2023",
-            logo: "K",
-            roles: [
-                {
-                    title: "Paramedic Project",
-                    period: "Mar 2023 - Des 2023",
-                    desc: "Bertanggung jawab atas klinik onsite 24 jam, penanganan kecelakaan kerja (first aid), dan inspeksi sanitasi pabrik."
-                }
-            ],
-            docs: ["https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800"]
-        }
-    ],
+/* Animasi Floating (Melayang) */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+    animation: float 7s ease-in-out infinite;
+    animation-delay: 2s;
+}
 
-    certificates: [
-        {
-            title: "BTCLS (Basic Trauma Cardiac Life Support)",
-            issuer: "AGD Dinkes DKI Jakarta",
-            validity: "Valid until 2027",
-            file: "https://images.unsplash.com/photo-1589330694653-4d5c9533158c?auto=format&fit=crop&q=80&w=800"
-        },
-        {
-            title: "HIPERKES (Higiene Perusahaan Kesehatan)",
-            issuer: "Kemennaker RI",
-            validity: "Lifetime",
-            file: "https://images.unsplash.com/photo-1589330694653-4d5c9533158c?auto=format&fit=crop&q=80&w=800"
-        },
-        {
-            title: "Sertifikasi PPI Dasar",
-            issuer: "Kemenkes RI",
-            validity: "Nasional",
-            file: "https://images.unsplash.com/photo-1589330694653-4d5c9533158c?auto=format&fit=crop&q=80&w=800"
-        }
-    ]
-};
+/* Gradient Text */
+.text-gradient {
+    background: linear-gradient(135deg, #0f172a 0%, #0d9488 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glass Effect yang lebih tebal */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+}
