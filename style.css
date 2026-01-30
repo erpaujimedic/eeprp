@@ -1,137 +1,92 @@
-/* --- MODERN GLASS UI THEME --- */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+const myData = {
+    profile: {
+        name: "Eep Ridwan Pauji",
+        title: "Professional Medic & HSE Specialist",
+        email: "erpauji.medic@gmail.com",
+        location: "Jakarta, Indonesia",
+        summary: "Praktisi medis berlisensi dengan spesialisasi Kesehatan & Keselamatan Kerja (K3/HSE). Berpengalaman dalam manajemen kesehatan onsite, tanggap darurat, dan administrasi medis korporat. Siap memberikan standar kesehatan tertinggi untuk perusahaan Anda.",
+        // Foto profil (Ganti dengan foto asli Anda yang profesional)
+        photo: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop" 
+    },
 
-:root {
-    --primary: #2563eb;
-    --secondary: #db2777;
-    --dark: #0f172a;
-    --light: #f8fafc;
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.5);
-    --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
-}
+    // PENGGANTI BLOG: Fokus pada apa yang bisa Anda tawarkan ke perusahaan
+    services: [
+        {
+            title: "Occupational Health",
+            desc: "Penerapan HIPERKES dan manajemen MCU karyawan.",
+            icon: "🏥"
+        },
+        {
+            title: "Emergency Response",
+            desc: "Kesiapsiagaan BTCLS dan penanganan trauma onsite.",
+            icon: "🚑"
+        },
+        {
+            title: "Health Administration",
+            desc: "Pelaporan medis akurat & analisis data kesehatan kerja.",
+            icon: "📊"
+        },
+        {
+            title: "HSE Implementation",
+            desc: "Inspeksi hygiene dan identifikasi bahaya kerja.",
+            icon: "🛡️"
+        }
+    ],
 
-* { box-sizing: border-box; }
+    experience: [
+        {
+            company: "Tirta Medical Centre",
+            location: "Jakarta",
+            period: "2023 - Present",
+            logo: "T", // Bisa diganti URL logo jika ada
+            roles: [
+                {
+                    title: "PIC Onsite Coordinator",
+                    period: "Jan 2024 - Sekarang",
+                    desc: "Mengkoordinasikan operasional MCU onsite di seluruh wilayah kerja, memastikan kepatuhan SOP medis, dan supervisi tim lapangan."
+                },
+                {
+                    title: "Medical Staff",
+                    period: "Agust 2023 - Des 2023",
+                    desc: "Melaksanakan pemeriksaan fisik karyawan (TTV, Spirometri, Audiometri) dan input data rekam medis elektronik."
+                }
+            ],
+            docs: ["https://images.unsplash.com/photo-1576091160550-217358c7e618?auto=format&fit=crop&q=80&w=800"]
+        },
+        {
+            company: "PT. Kimberly-Clark Softex",
+            location: "Karawang",
+            period: "2023",
+            logo: "K",
+            roles: [
+                {
+                    title: "Paramedic Project",
+                    period: "Mar 2023 - Des 2023",
+                    desc: "Bertanggung jawab atas klinik onsite 24 jam, penanganan kecelakaan kerja (first aid), dan inspeksi sanitasi pabrik."
+                }
+            ],
+            docs: ["https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800"]
+        }
+    ],
 
-body {
-    background: #f1f5f9;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--dark);
-    margin: 0;
-    overflow-x: hidden;
-    /* Background Gradient Halus */
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(219, 39, 119, 0.1) 0px, transparent 50%);
-    background-attachment: fixed;
-}
-
-/* --- NAVIGASI MELAYANG --- */
-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px); /* Efek Buram Belakangnya */
-    position: sticky; top: 0; z-index: 1000;
-    border-bottom: var(--glass-border);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-}
-
-.nav-logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--dark); letter-spacing: -1px; }
-.nav-logo span { color: var(--primary); }
-
-.nav-links a {
-    text-decoration: none; color: #64748b; font-weight: 600; margin-left: 30px;
-    font-size: 0.95rem; transition: 0.3s; position: relative;
-}
-.nav-links a:hover, .nav-links a.active { color: var(--primary); }
-.nav-links a::after {
-    content: ''; position: absolute; width: 0; height: 2px;
-    bottom: -5px; left: 0; background: var(--primary); transition: 0.3s;
-}
-.nav-links a:hover::after { width: 100%; }
-
-/* --- HERO SECTION --- */
-.hero {
-    min-height: 85vh;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%;
-    max-width: 1200px; margin: 0 auto;
-    flex-wrap: wrap; gap: 40px;
-}
-
-h1 {
-    font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px;
-    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero p { font-size: 1.15rem; color: #64748b; line-height: 1.7; margin-bottom: 35px; max-width: 500px; }
-
-/* --- GLASS CARDS (KARTU KACA) --- */
-.container { max-width: 1100px; margin: 80px auto; padding: 0 20px; }
-.section-title { margin-bottom: 50px; text-align: center; }
-.section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
-.section-title span { color: var(--primary); }
-
-.grid-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-
-.glass-card {
-    background: white;
-    border: 1px solid rgba(255,255,255,0.6);
-    border-radius: 20px; /* Sudut lebih bulat */
-    padding: 30px;
-    box-shadow: var(--shadow-soft);
-    transition: all 0.4s ease;
-    position: relative; top: 0;
-    overflow: hidden;
-}
-
-/* Hover Effect: Kartu naik ke atas & shadow makin tebal */
-.glass-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-    border-color: var(--primary);
-}
-
-/* --- BUTTONS --- */
-.btn {
-    padding: 14px 35px; border-radius: 50px; font-weight: 700; text-decoration: none;
-    display: inline-block; transition: 0.3s; font-size: 0.95rem; border: none; cursor: pointer;
-}
-.btn-primary {
-    background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
-    color: white;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
-}
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4); }
-
-.btn-secondary {
-    background: white; color: var(--dark); border: 1px solid #cbd5e1;
-    margin-left: 15px;
-}
-.btn-secondary:hover { border-color: var(--dark); background: #f8fafc; }
-
-/* --- TAGS & ICONS --- */
-.tag {
-    font-size: 0.75rem; font-weight: 800; padding: 6px 14px; border-radius: 30px;
-    letter-spacing: 0.5px; display: inline-block; margin-bottom: 15px; text-transform: uppercase;
-}
-.tag.medic { background: #fff1f2; color: #e11d48; }
-.tag.tech { background: #eff6ff; color: #2563eb; }
-
-/* --- RESPONSIVE IMAGE PLACEHOLDER (Stylish) --- */
-.img-box {
-    width: 100%; height: 220px; border-radius: 15px; margin-bottom: 20px;
-    background: #f1f5f9; display: flex; align-items: center; justify-content: center;
-    font-size: 3rem; color: #cbd5e1; transition: 0.3s; overflow: hidden;
-}
-.glass-card:hover .img-box { transform: scale(1.02); }
-.img-box img { width: 100%; height: 100%; object-fit: cover; }
-
-/* --- MOBILE --- */
-@media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    .hero { text-align: center; justify-content: center; padding-top: 40px; }
-    .hero p { margin: 0 auto 30px auto; }
-}
+    certificates: [
+        {
+            title: "BTCLS (Basic Trauma Cardiac Life Support)",
+            issuer: "AGD Dinkes DKI Jakarta",
+            validity: "Valid until 2027",
+            file: "https://images.unsplash.com/photo-1589330694653-4d5c9533158c?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+            title: "HIPERKES (Higiene Perusahaan Kesehatan)",
+            issuer: "Kemennaker RI",
+            validity: "Lifetime",
+            file: "https://images.unsplash.com/photo-1589330694653-4d5c9533158c?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+            title: "Sertifikasi PPI Dasar",
+            issuer: "Kemenkes RI",
+            validity: "Nasional",
+            file: "https://images.unsplash.com/photo-1589330694653-4d5c9533158c?auto=format&fit=crop&q=80&w=800"
+        }
+    ]
+};
