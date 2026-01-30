@@ -1,181 +1,232 @@
 document.addEventListener("DOMContentLoaded", function() {
+    renderNavbar();
+    renderFooter();
     
-    // 1. GENERATE NAVBAR (Otomatis di semua halaman)
+    // Router sederhana berdasarkan ID elemen yang ada di halaman
+    if (document.getElementById('home-content')) renderHome();
+    if (document.getElementById('portfolio-list')) renderPortfolio();
+    if (document.getElementById('cert-list')) renderCertificates();
+});
+
+// --- RENDER FUNCTIONS ---
+
+function renderNavbar() {
+    // Deteksi halaman aktif
+    const path = window.location.pathname;
+    const page = path.split("/").pop() || "index.html";
+
     const navHTML = `
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-slate-900/90 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="text-white font-extrabold text-xl tracking-wider uppercase group">
-                    Eep Ridwan <span class="text-teal-400 group-hover:text-teal-300 transition">Pauji</span>
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="font-extrabold text-2xl tracking-tight text-slate-800">
+                    ERP<span class="text-teal-600">.Medic</span>
                 </a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-slate-300 hover:text-teal-400 text-sm font-bold uppercase tracking-wide transition py-2">Home</a>
-                    <a href="portfolio.html" class="text-slate-300 hover:text-teal-400 text-sm font-bold uppercase tracking-wide transition py-2">Portfolio</a>
-                    <a href="sertifikasi.html" class="text-slate-300 hover:text-teal-400 text-sm font-bold uppercase tracking-wide transition py-2">Sertifikasi</a>
+                    <a href="index.html" class="${page === 'index.html' ? 'text-teal-600' : 'text-slate-500'} font-semibold hover:text-teal-600 transition">Home</a>
+                    <a href="portfolio.html" class="${page === 'portfolio.html' ? 'text-teal-600' : 'text-slate-500'} font-semibold hover:text-teal-600 transition">Experience</a>
+                    <a href="sertifikasi.html" class="${page === 'sertifikasi.html' ? 'text-teal-600' : 'text-slate-500'} font-semibold hover:text-teal-600 transition">Licenses</a>
+                </div>
+                <div class="md:hidden">
+                    <a href="mailto:${myData.profile.email}" class="text-teal-600 font-bold text-sm">Contact Me</a>
                 </div>
             </div>
         </div>
     </nav>
-    <div id="globalModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl relative transform scale-95 transition-transform duration-300" id="modalPanel">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 z-10 bg-white rounded-full p-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-            <div id="modalContent" class="p-6 md:p-8"></div>
+    <div class="h-20"></div>
+    `;
+    document.body.insertAdjacentHTML("afterbegin", navHTML);
+}
+
+function renderFooter() {
+    const footerHTML = `
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-auto border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-white text-xl font-bold mb-4">Ready to Hire?</h2>
+            <p class="mb-6">Available for Full-time or Project-based Medical/HSE Roles.</p>
+            <a href="mailto:${myData.profile.email}" class="inline-block bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                Hubungi Via Email
+            </a>
+            <p class="mt-8 text-sm opacity-50">&copy; 2026 ${myData.profile.name}. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <div id="modalOverlay" class="fixed inset-0 z-[60] hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div id="modalPanel" class="bg-white w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col">
+            <div class="p-4 border-b border-slate-100 flex justify-between items-center">
+                <h3 id="modalTitle" class="font-bold text-slate-800 text-lg">Documentation</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-red-500">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="modalContent" class="p-6 overflow-y-auto"></div>
         </div>
     </div>
     `;
-    document.body.insertAdjacentHTML("afterbegin", navHTML);
-
-    // 2. GENERATE FOOTER
-    const footerHTML = `
-    <footer class="bg-slate-950 text-slate-500 py-10 text-center text-sm mt-auto border-t border-slate-900">
-        <p class="mb-2 font-medium">&copy; 2026 Eep Ridwan Pauji. All rights reserved.</p>
-        <div class="flex justify-center gap-6">
-            <a href="mailto:erpauji.medic@gmail.com" class="hover:text-teal-400 transition">Email</a>
-            <a href="#" class="hover:text-teal-400 transition">LinkedIn</a>
-        </div>
-    </footer>`;
     document.body.insertAdjacentHTML("beforeend", footerHTML);
+}
 
-    // 3. LOGIC HALAMAN HOME
-    const heroBg = document.getElementById('hero-bg');
-    const blogList = document.getElementById('blog-list');
-    
-    if (heroBg && typeof myData !== 'undefined') {
-        heroBg.style.backgroundImage = `url('${myData.profile.heroImage}')`;
-    }
-    
-    if (blogList && typeof myData !== 'undefined') {
-        myData.blog.forEach(post => {
-            blogList.innerHTML += `
-            <article class="bg-white border border-slate-200 p-6 rounded-xl hover:shadow-lg hover:border-teal-500 transition group cursor-pointer">
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="w-2 h-2 rounded-full bg-teal-500"></span>
-                    <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">${post.date}</span>
+function renderHome() {
+    // Hero Section Injection
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+        heroSection.innerHTML = `
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1 text-center md:text-left animate-fade-in-up">
+                    <span class="inline-block py-1 px-3 rounded-full bg-teal-50 text-teal-600 text-xs font-bold tracking-widest uppercase mb-4 border border-teal-100">
+                        Open for Recruitment
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
+                        Menjamin <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-600">Kesehatan Kerja</span> yang Produktif.
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl">
+                        ${myData.profile.summary}
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="portfolio.html" class="bg-slate-900 text-white hover:bg-slate-800 px-8 py-4 rounded-lg font-bold transition shadow-lg shadow-slate-900/20">
+                            Lihat Experience
+                        </a>
+                        <a href="sertifikasi.html" class="bg-white text-slate-700 border border-slate-200 hover:border-teal-500 hover:text-teal-600 px-8 py-4 rounded-lg font-bold transition">
+                            Cek Lisensi
+                        </a>
+                    </div>
                 </div>
-                <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition">${post.title}</h4>
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">${post.summary}</p>
-                <span class="text-teal-600 text-sm font-bold flex items-center gap-1">Baca Selengkapnya <span class="group-hover:translate-x-1 transition">&rarr;</span></span>
-            </article>`;
+                <div class="flex-1 relative w-full max-w-md md:max-w-full">
+                    <div class="absolute inset-0 bg-teal-200 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+                    <img src="${myData.profile.photo}" alt="Profile" class="relative z-10 w-full h-[500px] object-cover rounded-3xl shadow-2xl rotate-2 hover:rotate-0 transition duration-700 ease-out border-4 border-white">
+                </div>
+            </div>
+        `;
+    }
+
+    // Services / Competencies Injection
+    const servicesGrid = document.getElementById('services-grid');
+    if (servicesGrid) {
+        myData.services.forEach(svc => {
+            servicesGrid.innerHTML += `
+            <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-teal-100 transition duration-300 group">
+                <div class="text-4xl mb-4 group-hover:scale-110 transition duration-300">${svc.icon}</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">${svc.title}</h3>
+                <p class="text-slate-500 leading-relaxed">${svc.desc}</p>
+            </div>
+            `;
         });
     }
+}
 
-// 4. LOGIC HALAMAN PORTFOLIO (NEW LINKEDIN STYLE)
-    const portfolioList = document.getElementById('portfolio-list');
-    if (portfolioList && typeof myData !== 'undefined') {
-        myData.experience.forEach((companyData, companyIndex) => {
+function renderPortfolio() {
+    const list = document.getElementById('portfolio-list');
+    myData.experience.forEach((exp, idx) => {
+        let rolesHTML = '';
+        exp.roles.forEach((role) => {
+            rolesHTML += `
+            <div class="relative pl-8 pb-8 border-l-2 border-slate-200 last:border-0 last:pb-0">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-4 border-teal-500"></div>
+                <h4 class="text-lg font-bold text-slate-800">${role.title}</h4>
+                <p class="text-sm font-mono text-slate-500 mb-2">${role.period}</p>
+                <p class="text-slate-600 mb-3">${role.desc}</p>
+            </div>
+            `;
+        });
+
+        // Cek apakah ada dokumentasi
+        const docBtn = (exp.docs && exp.docs.length > 0) 
+            ? `<button onclick="showExpModal(${idx})" class="mt-4 text-sm font-bold text-teal-600 hover:text-teal-800 flex items-center gap-2">
+                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                 Lihat Bukti Foto
+               </button>` 
+            : '';
+
+        list.innerHTML += `
+        <div class="mb-10 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 border-b border-slate-100 pb-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900">${exp.company}</h3>
+                    <div class="flex items-center gap-2 text-slate-500 mt-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span>${exp.location}</span>
+                    </div>
+                </div>
+                <span class="mt-2 md:mt-0 bg-slate-100 text-slate-600 px-3 py-1 rounded text-sm font-bold">${exp.period}</span>
+            </div>
+            <div class="pl-2">
+                ${rolesHTML}
+                ${docBtn}
+            </div>
+        </div>
+        `;
+    });
+}
+
+function renderCertificates() {
+    const list = document.getElementById('cert-list');
+    myData.certificates.forEach((cert, idx) => {
+        list.innerHTML += `
+        <div class="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-lg transition group relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                ${cert.icon || 'Official'}
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1 pr-6">${cert.title}</h3>
+            <p class="text-sm text-slate-500 mb-4">${cert.issuer} • <span class="text-teal-600">${cert.validity}</span></p>
             
-            // Loop Jabatan (Roles)
-            let rolesHTML = '';
-            companyData.roles.forEach((role, roleIndex) => {
-                const hasDocs = role.docs && role.docs.length > 0;
-                
-                // Style tombol dokumentasi (jika ada)
-                const docBadge = hasDocs 
-                    ? `<button onclick="openModal('exp', ${companyIndex}, ${roleIndex})" class="mt-2 text-xs flex items-center gap-1 text-teal-600 font-bold bg-teal-50 px-2 py-1 rounded hover:bg-teal-100 transition">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        Lihat Foto
-                      </button>` 
-                    : '';
+            <button onclick="showCertModal(${idx})" class="w-full py-2 border border-slate-200 rounded-lg text-slate-600 font-bold text-sm hover:bg-slate-50 hover:text-teal-600 transition flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                Lihat Sertifikat
+            </button>
+        </div>
+        `;
+    });
+}
 
-                // Garis Timeline (Putus-putus jika jabatan lama, Solid jika jabatan terbaru)
-                const lineStyle = roleIndex === companyData.roles.length - 1 ? '' : 'border-l-2 border-slate-200';
-                
-                rolesHTML += `
-                <div class="relative pl-8 pb-8 ${lineStyle} last:pb-0 ml-2">
-                    <div class="absolute -left-[5px] top-1.5 w-3 h-3 bg-slate-300 rounded-full border-2 border-white ring-1 ring-slate-100 group-hover:bg-teal-500 transition"></div>
-                    
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1">
-                        <h4 class="text-lg font-bold text-slate-800">${role.title}</h4>
-                        <span class="text-xs font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded">${role.period}</span>
-                    </div>
-                    <div class="text-xs text-slate-500 mb-2 font-medium">${role.type}</div>
-                    
-                    <ul class="list-disc list-outside ml-4 text-slate-600 text-sm space-y-1 mb-2">
-                        ${role.desc.map(d => `<li>${d}</li>`).join('')}
-                    </ul>
-                    ${docBadge}
-                </div>`;
-            });
+// --- MODAL LOGIC ---
 
-            // Bungkus per Perusahaan
-            portfolioList.innerHTML += `
-            <div class="mb-8 last:mb-0 group">
-                <div class="flex items-start gap-4 mb-4">
-                    <div class="w-12 h-12 bg-white rounded-lg shadow-sm border border-slate-100 flex items-center justify-center text-slate-700 shrink-0">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-extrabold text-slate-900 leading-tight">${companyData.company}</h3>
-                        <p class="text-sm text-slate-500">${companyData.location}</p>
-                    </div>
-                </div>
-                <div class="pl-6">
-                    ${rolesHTML}
-                </div>
-            </div>`;
-        });
-    }
-
-// === UPDATE SYSTEM MODAL (POPUP) ===
-// Fungsi ini perlu diupdate karena strukturnya sekarang berubah (Ada Index Perusahaan & Index Role)
-function openModal(type, index1, index2 = null) {
-    const modal = document.getElementById('globalModal');
-    const panel = document.getElementById('modalPanel');
-    const content = document.getElementById('modalContent');
+function showExpModal(index) {
+    const data = myData.experience[index];
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
     
-    modal.classList.remove('hidden');
+    modalTitle.textContent = `Dokumentasi: ${data.company}`;
+    modalContent.innerHTML = `
+        <div class="grid grid-cols-1 gap-4">
+            ${data.docs.map(img => `<img src="${img}" class="w-full rounded-lg shadow-md">`).join('')}
+        </div>
+    `;
+    openModal();
+}
+
+function showCertModal(index) {
+    const data = myData.certificates[index];
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    
+    modalTitle.textContent = data.title;
+    modalContent.innerHTML = `
+        <div class="text-center mb-4">
+            <p class="text-slate-500">Penerbit: <b>${data.issuer}</b></p>
+        </div>
+        <img src="${data.file}" class="w-full rounded-lg border border-slate-100 shadow-sm">
+        <div class="mt-4 text-center">
+            <a href="${data.file}" target="_blank" class="text-teal-600 font-bold hover:underline">Buka File Asli</a>
+        </div>
+    `;
+    openModal();
+}
+
+function openModal() {
+    const overlay = document.getElementById('modalOverlay');
+    const panel = document.getElementById('modalPanel');
+    overlay.classList.remove('hidden');
     setTimeout(() => {
-        modal.classList.remove('opacity-0');
+        overlay.classList.remove('opacity-0');
         panel.classList.remove('scale-95');
     }, 10);
+}
 
-    if (type === 'exp') {
-        // index1 = index perusahaan, index2 = index jabatan
-        const data = myData.experience[index1].roles[index2];
-        const companyName = myData.experience[index1].company;
-        
-        const images = data.docs.map(img => 
-            `<img src="${img}" class="w-full h-auto rounded-lg shadow-md border border-slate-100 mb-2" loading="lazy">`
-        ).join('');
-        
-        content.innerHTML = `
-            <div class="border-b border-slate-100 pb-4 mb-4">
-                <span class="text-xs font-bold text-teal-600 uppercase tracking-wide bg-teal-50 px-2 py-1 rounded mb-2 inline-block">Dokumentasi</span>
-                <h2 class="text-2xl font-bold text-slate-900">${data.title}</h2>
-                <p class="text-slate-500 font-medium text-lg">${companyName}</p>
-                <p class="text-sm text-slate-400 mt-1">${data.period}</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
-                ${images}
-            </div>
-        `;
-    } else if (type === 'cert') {
-        // Logic Sertifikat TETAP SAMA seperti sebelumnya
-        const data = myData.certificates[index1];
-        const isPdf = data.file.toLowerCase().endsWith('.pdf');
-        
-        let mediaDisplay = '';
-        if (isPdf) {
-             mediaDisplay = `<iframe src="${data.file}" class="w-full h-[60vh] rounded bg-slate-100 border border-slate-200"></iframe>`;
-        } else {
-             mediaDisplay = `<img src="${data.file}" class="w-full h-auto max-h-[70vh] object-contain rounded bg-slate-50 border border-slate-100">`;
-        }
-
-        content.innerHTML = `
-            <div class="flex justify-between items-start mb-4 border-b border-slate-100 pb-4">
-                <div>
-                    <h2 class="text-xl font-bold text-slate-900">${data.title}</h2>
-                    <p class="text-sm text-slate-500">${data.issuer}</p>
-                </div>
-                <a href="${data.file}" target="_blank" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition shadow-sm flex items-center gap-2">
-                    Download
-                </a>
-            </div>
-            <div class="flex justify-center bg-slate-50 rounded-lg p-2 border border-slate-100 border-dashed">
-                ${mediaDisplay}
-            </div>
-        `;
-    }
+function closeModal() {
+    const overlay = document.getElementById('modalOverlay');
+    const panel = document.getElementById('modalPanel');
+    overlay.classList.add('opacity-0');
+    panel.classList.add('scale-95');
+    setTimeout(() => {
+        overlay.classList.add('hidden');
+    }, 300);
 }
