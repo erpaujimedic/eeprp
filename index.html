@@ -1,56 +1,103 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eep Ridwan Pauji - Professional Medic</title>
+    <title>Monitoring Jadwal Kegiatan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
 </head>
-<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+<body class="bg-gray-50 p-5">
 
-    <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
-        <div id="hero-bg" class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 hover:scale-105"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/90"></div>
-        
-        <div class="container mx-auto px-4 relative z-10 text-center md:text-left mt-16">
-            <div class="inline-block mb-4 animate-fade-in-up">
-                <span class="bg-teal-500/10 text-teal-300 border border-teal-500/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.2em] uppercase backdrop-blur-md">
-                    Professional Medic & HSE
-                </span>
-            </div>
-            <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight max-w-4xl drop-shadow-lg">
-                Menjaga <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">Kualitas Kesehatan</span> <br> di Lingkungan Kerja.
-            </h1>
-            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-light drop-shadow-md">
-                Portofolio resmi Eep Ridwan Pauji. Fokus pada manajemen kesehatan kerja (HIPERKES), 
-                Medical Check Up, dan kesiapsiagaan gawat darurat.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
-                <a href="portfolio.html" class="bg-teal-500 hover:bg-teal-400 text-slate-900 px-8 py-4 rounded-lg font-bold transition shadow-lg shadow-teal-500/20 transform hover:-translate-y-1">
-                    Lihat Portfolio
-                </a>
-                <a href="mailto:erpauji.medic@gmail.com" class="border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white text-white px-8 py-4 rounded-lg font-bold transition backdrop-blur-sm">
-                    Hubungi Saya
-                </a>
-            </div>
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">📅 Sistem Jadwal Kegiatan</h1>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 mb-10">
+            <h2 class="text-lg font-semibold mb-4 text-blue-600">Tambah Kegiatan Baru</h2>
+            <form id="jadwalForm" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <input type="text" id="nama" placeholder="Nama Kegiatan" required class="border p-2 rounded w-full">
+                <input type="date" id="tanggal" required class="border p-2 rounded w-full">
+                <input type="time" id="jam" required class="border p-2 rounded w-full">
+                <button type="submit" id="btnSimpan" class="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition">
+                    Simpan Jadwal
+                </button>
+            </form>
         </div>
-    </header>
 
-    <main class="container mx-auto px-4 py-20 max-w-5xl">
-        <div class="flex items-end justify-between mb-10 border-b border-slate-200 pb-6">
-            <div>
-                <h2 class="text-3xl font-bold text-slate-900">Catatan & Artikel</h2>
-                <p class="text-slate-500 mt-2">Insight terbaru seputar dunia medis dan K3.</p>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="flex justify-between items-center p-6 border-b">
+                <h2 class="text-lg font-semibold text-gray-700">Daftar Monitoring Jadwal</h2>
+                <button onclick="muatData()" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded">🔄 Refresh Data</button>
             </div>
-            <a href="#" class="hidden md:block text-teal-600 font-bold hover:underline">Lihat Semua Arsip</a>
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="p-4 border-b font-medium text-gray-600">Kegiatan</th>
+                        <th class="p-4 border-b font-medium text-gray-600">Tanggal</th>
+                        <th class="p-4 border-b font-medium text-gray-600">Waktu</th>
+                        <th class="p-4 border-b font-medium text-gray-600">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelBody" class="divide-y">
+                    <tr><td colspan="4" class="p-4 text-center text-gray-400">Memuat data...</td></tr>
+                </tbody>
+            </table>
         </div>
-        
-        <div id="blog-list" class="grid md:grid-cols-2 gap-8"></div>
-    </main>
+    </div>
 
-    <script src="assets/js/data.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycbw883o9la2gqVy98t8eddiphRuC2BS41o8m1E8OAuHcldIshvbZ2_o7csjbjJee_g_2/exec';
+
+        // FUNGSI 1: Ambil Data (Monitoring)
+        async function muatData() {
+            try {
+                const res = await fetch(API_URL);
+                const data = await res.json();
+                const tbody = document.getElementById('tabelBody');
+                tbody.innerHTML = '';
+
+                data.forEach(item => {
+                    const tglFormated = new Date(item.tanggal).toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' });
+                    tbody.innerHTML += `
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-semibold text-gray-800">${item.nama}</td>
+                            <td class="p-4 text-gray-600">${tglFormated}</td>
+                            <td class="p-4 text-gray-600">${item.jam}</td>
+                            <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-bold">${item.status}</span></td>
+                        </tr>`;
+                });
+            } catch (err) {
+                console.error("Gagal muat data:", err);
+            }
+        }
+
+        // FUNGSI 2: Simpan Data (Input)
+        document.getElementById('jadwalForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btnSimpan');
+            btn.disabled = true;
+            btn.innerText = "Menyimpan...";
+
+            const payload = {
+                nama: document.getElementById('nama').value,
+                tanggal: document.getElementById('tanggal').value,
+                jam: document.getElementById('jam').value
+            };
+
+            try {
+                await fetch(API_URL, { method: 'POST', body: JSON.stringify(payload) });
+                alert("Jadwal Berhasil Disimpan!");
+                this.reset();
+                muatData(); // Refresh tabel setelah input
+            } catch (err) {
+                alert("Terjadi kesalahan.");
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Simpan Jadwal";
+            }
+        });
+
+        // Jalankan saat halaman pertama kali dibuka
+        muatData();
+    </script>
 </body>
 </html>
