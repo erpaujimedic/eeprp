@@ -14,10 +14,10 @@
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 mb-10">
             <h2 class="text-lg font-semibold mb-4 text-blue-600">Tambah Kegiatan Baru</h2>
             <form id="jadwalForm" class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <input type="text" id="nama" placeholder="Nama Kegiatan" required class="border p-2 rounded w-full">
-                <input type="date" id="tanggal" required class="border p-2 rounded w-full">
-                <input type="time" id="jam" required class="border p-2 rounded w-full">
-                <button type="submit" id="btnSimpan" class="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition">
+                <input type="text" id="nama" placeholder="Nama Kegiatan" required class="border p-2 rounded w-full focus:ring-2 focus:ring-blue-500 outline-none">
+                <input type="date" id="tanggal" required class="border p-2 rounded w-full focus:ring-2 focus:ring-blue-500 outline-none">
+                <input type="time" id="jam" required class="border p-2 rounded w-full focus:ring-2 focus:ring-blue-500 outline-none">
+                <button type="submit" id="btnSimpan" class="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-200">
                     Simpan Jadwal
                 </button>
             </form>
@@ -26,54 +26,80 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
             <div class="flex justify-between items-center p-6 border-b">
                 <h2 class="text-lg font-semibold text-gray-700">Daftar Monitoring Jadwal</h2>
-                <button onclick="muatData()" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded">🔄 Refresh Data</button>
+                <button onclick="muatData()" class="text-sm bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1 rounded-md font-medium transition">
+                    🔄 Refresh Data
+                </button>
             </div>
-            <table class="w-full text-left border-collapse">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th class="p-4 border-b font-medium text-gray-600">Kegiatan</th>
-                        <th class="p-4 border-b font-medium text-gray-600">Tanggal</th>
-                        <th class="p-4 border-b font-medium text-gray-600">Waktu</th>
-                        <th class="p-4 border-b font-medium text-gray-600">Status</th>
-                    </tr>
-                </thead>
-                <tbody id="tabelBody" class="divide-y">
-                    <tr><td colspan="4" class="p-4 text-center text-gray-400">Memuat data...</td></tr>
-                </tbody>
-            </table>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 border-b font-semibold text-gray-600">Kegiatan</th>
+                            <th class="p-4 border-b font-semibold text-gray-600">Tanggal</th>
+                            <th class="p-4 border-b font-semibold text-gray-600">Waktu</th>
+                            <th class="p-4 border-b font-semibold text-gray-600">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelBody" class="divide-y text-gray-700">
+                        <tr><td colspan="4" class="p-8 text-center text-gray-400">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <script>
+        // Masukkan URL Web App Apps Script kamu di sini
         const API_URL = 'https://script.google.com/macros/s/AKfycbw883o9la2gqVy98t8eddiphRuC2BS41o8m1E8OAuHcldIshvbZ2_o7csjbjJee_g_2/exec';
 
-        // FUNGSI 1: Ambil Data (Monitoring)
+        // FUNGSI 1: Mengambil Data (Monitoring)
         async function muatData() {
+            const tbody = document.getElementById('tabelBody');
             try {
                 const res = await fetch(API_URL);
                 const data = await res.json();
-                const tbody = document.getElementById('tabelBody');
+                
                 tbody.innerHTML = '';
 
+                if (data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" class="p-4 text-center">Belum ada jadwal.</td></tr>';
+                    return;
+                }
+
                 data.forEach(item => {
-                    const tglFormated = new Date(item.tanggal).toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' });
+                    // Format tanggal agar lebih enak dibaca (Contoh: 12 Feb 2026)
+                    let tglTampil = item.tanggal;
+                    try {
+                        tglTampil = new Date(item.tanggal).toLocaleDateString('id-ID', { 
+                            day: '2-digit', 
+                            month: 'short', 
+                            year: 'numeric' 
+                        });
+                    } catch(e) {}
+
                     tbody.innerHTML += `
                         <tr class="hover:bg-gray-50 transition">
-                            <td class="p-4 font-semibold text-gray-800">${item.nama}</td>
-                            <td class="p-4 text-gray-600">${tglFormated}</td>
-                            <td class="p-4 text-gray-600">${item.jam}</td>
-                            <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-bold">${item.status}</span></td>
+                            <td class="p-4 font-medium text-gray-900">${item.nama}</td>
+                            <td class="p-4">${tglTampil}</td>
+                            <td class="p-4">${item.jam}</td>
+                            <td class="p-4">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm">
+                                    ${item.status || 'Terjadwal'}
+                                </span>
+                            </td>
                         </tr>`;
                 });
             } catch (err) {
                 console.error("Gagal muat data:", err);
+                tbody.innerHTML = '<tr><td colspan="4" class="p-4 text-center text-red-500">Gagal memuat data. Pastikan Backend sudah dideploy sebagai "Anyone".</td></tr>';
             }
         }
 
-        // FUNGSI 2: Simpan Data (Input)
+        // FUNGSI 2: Mengirim Data (Input)
         document.getElementById('jadwalForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const btn = document.getElementById('btnSimpan');
+            
             btn.disabled = true;
             btn.innerText = "Menyimpan...";
 
@@ -84,20 +110,31 @@
             };
 
             try {
-                await fetch(API_URL, { method: 'POST', body: JSON.stringify(payload) });
-                alert("Jadwal Berhasil Disimpan!");
+                // Menggunakan mode: 'no-cors' agar tidak terblokir saat mengirim
+                await fetch(API_URL, { 
+                    method: 'POST', 
+                    mode: 'no-cors',
+                    body: JSON.stringify(payload) 
+                });
+                
+                // Karena no-cors tidak bisa membaca respon, kita langsung asumsikan sukses jika tidak masuk ke catch
+                alert("Jadwal Berhasil Disimpan ke Google Sheets!");
                 this.reset();
-                muatData(); // Refresh tabel setelah input
+                
+                // Tunggu 1 detik sebentar sebelum refresh agar Google selesai menulis data
+                setTimeout(muatData, 1500); 
+
             } catch (err) {
-                alert("Terjadi kesalahan.");
+                console.error("Error:", err);
+                alert("Terjadi kesalahan saat mengirim data.");
             } finally {
                 btn.disabled = false;
                 btn.innerText = "Simpan Jadwal";
             }
         });
 
-        // Jalankan saat halaman pertama kali dibuka
-        muatData();
+        // Jalankan otomatis saat halaman dibuka
+        window.onload = muatData;
     </script>
 </body>
 </html>
